@@ -1,104 +1,469 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Reiandraa — Portfolio</title>
-    <meta
-        name="description"
-        content="Personal portfolio of Reiandraa."
-    >
-
+    <meta name="description" content="Personal portfolio of Reiandraa.">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="wayang-cursor">
 
-    <header>
-        <nav>
-            <a href="/" class="logo">Reiandraa</a>
+    <header id="siteNav">
 
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+        <nav class="w-full">
+
+            <div class="flex w-full items-center justify-center gap-8">
+
+                <a href="#hero" class="nav-link text-sm font-medium uppercase tracking-[0.25em] text-[#D7A64A]"
+                    data-section="hero">
+                    Reiandraa
+                </a>
+
+                <span class="text-[#D7A64A]/40">·</span>
+
+                <a href="#about" class="nav-link text-xs font-medium uppercase tracking-[0.2em] text-[#D7A64A]"
+                    data-section="about">
+                    About
+                </a>
+
+                <a href="#projects" class="nav-link text-xs font-medium uppercase tracking-[0.2em] text-[#D7A64A]"
+                    data-section="projects">
+                    Projects
+                </a>
+
+                <a href="#contact" class="nav-link text-xs font-medium uppercase tracking-[0.2em] text-[#D7A64A]"
+                    data-section="contact">
+                    Contact
+                </a>
+
             </div>
+
         </nav>
+
     </header>
 
-
     <main>
-
         <!-- Hero -->
-        <section id="hero">
-            <p>Hello, I'm</p>
-            <h1>Reiandraa.</h1>
+        <section id="hero" class="panel relative h-screen min-h-screen w-full overflow-hidden bg-[#F7F3EA]">
 
-            <p>
-                Student, developer, and musician.
-            </p>
+            <!-- Background ornaments -->
+            <img src="assets/ornament-mega-mendung.svg" alt="" aria-hidden="true"
+                class="pointer-events-none absolute -right-24 top-16 w-[420px] opacity-[0.08]">
 
-            <a href="#projects">View my work</a>
+            <img src="assets/ornament-batik.svg" alt="" aria-hidden="true"
+                class="pointer-events-none absolute -left-32 bottom-0 w-[360px] opacity-[0.04]">
+
+            <!-- Hero content -->
+            <div class="relative mx-auto flex h-full w-full max-w-screen-xl items-center px-6 lg:px-8">
+
+                <!-- LEFT -->
+                <div class="w-full lg:w-[58%]">
+
+                    <p class="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-[#8B7355]">
+                        Sugeng Rawuh
+                    </p>
+
+                    <h1
+                        class="max-w-4xl text-6xl font-semibold leading-[0.95] tracking-[-0.04em] text-[#2F1F0E] sm:text-7xl lg:text-8xl">
+                        Reiandraa
+                    </h1>
+
+                    <p class="mt-7 max-w-xl text-lg leading-8 text-[#6F6253] md:text-xl">
+                        Code, music, and creativity.
+                    </p>
+
+                    <div class="mt-10 flex flex-wrap gap-4">
+
+                        <a href="#projects"
+                            class="inline-flex items-center rounded-lg bg-[#2F1F0E] px-5 py-3 text-sm font-medium text-[#F7F3EA] transition hover:bg-[#4A3218]">
+                            Explore My Work
+                            <span class="ml-2">↗</span>
+                        </a>
+
+                        <a href="#contact"
+                            class="inline-flex items-center rounded-lg border border-[#D7A64A] px-5 py-3 text-sm font-medium text-[#2F1F0E] transition hover:bg-[#D7A64A]/10">
+                            Contact Me
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT -->
+                <div class="relative hidden h-[560px] w-[42%] items-center justify-center lg:flex">
+
+                    <!-- Gunungan -->
+                    <img src="assets/ornament-gunungan.svg" alt="" aria-hidden="true"
+                        class="absolute h-[430px] w-auto opacity-[0.10]">
+
+                    <!-- Wayang -->
+                    <img src="assets/hero-wayang.svg" alt="" class="relative z-10 max-h-[500px] w-auto object-contain">
+
+                    <!-- Batik -->
+                    <img src="assets/ornament-batik.svg" alt="" aria-hidden="true"
+                        class="absolute -bottom-4 -right-4 w-32 opacity-[0.10]">
+
+                </div>
+
+            </div>
+
         </section>
-
-
         <!-- About -->
-        <section id="about">
-            <h2>About Me</h2>
-
-            <p>
-                I'm a student interested in software development,
-                technology, and music.
-            </p>
+        <section id="about"
+            class="panel relative h-[100svh] min-h-[100svh] w-full shrink-0 overflow-hidden bg-[#F7F3EA]">
+            <div class="mx-auto flex h-full w-full max-w-screen-xl flex-col justify-center px-6 lg:px-8">
+                <!-- Small label -->
+                <div class="mb-8 flex items-center gap-4">
+                    <span class="h-px w-10 bg-[#D7A64A]"></span>
+                    <span class="text-sm font-medium uppercase tracking-[0.25em] text-[#8B7355]">
+                        About Me
+                    </span>
+                </div>
+                <div class="grid gap-12 lg:grid-cols-12 lg:gap-20">
+                    <!-- Heading -->
+                    <div class="lg:col-span-5">
+                        <h2
+                            class="text-4xl font-semibold leading-tight tracking-tight text-[#2F1F0E] md:text-5xl lg:text-6xl">
+                            Building things
+                            <span class="block text-[#8B7355]">with curiosity.</span>
+                        </h2>
+                    </div>
+                    <!-- Description -->
+                    <div class="lg:col-span-7 lg:pt-2">
+                        <p class="max-w-2xl text-lg leading-8 text-[#5F5142] md:text-xl md:leading-9">
+                            I'm a student developer exploring the space between
+                            <span class="font-medium text-[#2F1F0E]">code, music, and technology.</span>
+                        </p>
+                        <p class="mt-6 max-w-2xl text-base leading-7 text-[#796B5B] md:text-lg md:leading-8">
+                            I enjoy turning ideas into things I can build, experiment with,
+                            and interact with — from software projects to musical experiments
+                            and everything in between.
+                        </p>
+                        <p class="mt-6 max-w-2xl text-base leading-7 text-[#796B5B] md:text-lg md:leading-8">
+                            For me, technology is not just about writing code.
+                            It's about exploring ideas, learning along the way,
+                            and creating something meaningful from them.
+                        </p>
+                        <!-- Interests -->
+                        <div class="mt-10 flex flex-wrap gap-3">
+                            <span
+                                class="rounded-full border border-[#D7A64A]/40 bg-[#F7F3EA] px-5 py-2 text-sm font-medium tracking-wide text-[#2F1F0E]">
+                                Code
+                            </span>
+                            <span
+                                class="rounded-full border border-[#D7A64A]/40 bg-[#F7F3EA] px-5 py-2 text-sm font-medium tracking-wide text-[#2F1F0E]">
+                                Music
+                            </span>
+                            <span
+                                class="rounded-full border border-[#D7A64A]/40 bg-[#F7F3EA] px-5 py-2 text-sm font-medium tracking-wide text-[#2F1F0E]">
+                                Technology
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Subtle Javanese-inspired divider -->
+                <div class="mt-20 flex items-center justify-center gap-3 opacity-60">
+                    <span class="h-px w-16 bg-[#D7A64A]"></span>
+                    <span class="text-lg text-[#D7A64A]">◆</span>
+                    <span class="h-px w-16 bg-[#D7A64A]"></span>
+                </div>
+            </div>
         </section>
-
-
         <!-- Projects -->
-        <section id="projects">
-            <h2>Projects</h2>
+        <section id="projects" class="panel relative w-full overflow-hidden bg-[#2F1F0E]">
+            <!-- Projects viewport -->
+            <div class="relative flex h-full w-full flex-col justify-center gap-16">
 
-            <article>
-                <h3>Project One</h3>
-                <p>
-                    A short description of the project.
-                </p>
-                <a href="#">View project</a>
-            </article>
+                <!-- Heading -->
+                <div class="mx-auto w-full max-w-screen-xl px-6 sm:px-8 lg:px-10">
 
-            <article>
-                <h3>Project Two</h3>
-                <p>
-                    A short description of the project.
-                </p>
-                <a href="#">View project</a>
-            </article>
+                    <div class="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+
+                        <div>
+                            <div class="mb-5 flex items-center gap-4">
+                                <span class="h-px w-10 bg-[#D7A64A]"></span>
+
+                                <span class="text-xs font-medium uppercase tracking-[0.25em] text-[#D7A64A]">
+                                    Selected Projects
+                                </span>
+                            </div>
+
+                            <h2
+                                class="text-4xl font-semibold leading-tight tracking-tight text-[#F7F3EA] md:text-5xl lg:text-6xl">
+                                Things I've
+                                <span class="text-[#D7A64A]">built.</span>
+                            </h2>
+                        </div>
+
+                        <p class="max-w-xl text-sm leading-6 text-[#C8BBA9] md:text-base lg:ml-auto">
+                            A collection of projects, experiments, and ideas I've worked on
+                            along the way.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Horizontal project track -->
+                <div id="projectsViewport" class="w-full overflow-x-auto overflow-y-hidden">
+
+                    <div id="projectsTrack" class="flex w-max gap-6 pl-[max(1.5rem,calc((100vw-1280px)/2))] pr-12">
+
+                        <!-- Project 01 -->
+                        <article
+                            class="project-card relative flex h-[360px] w-[min(72vw,720px)] shrink-0 flex-col justify-between border border-[#D7A64A]/25 bg-[#3A2714] p-8 md:h-[400px] md:p-10">
+
+                            <div>
+                                <div class="mb-8 flex items-center justify-between">
+                                    <span class="text-sm font-medium tracking-[0.2em] text-[#D7A64A]">
+                                        01
+                                    </span>
+
+                                    <span class="text-xs uppercase tracking-[0.2em] text-[#8B7355]">
+                                        Project
+                                    </span>
+                                </div>
+
+                                <h3 class="max-w-xl text-4xl font-semibold tracking-tight text-[#F7F3EA] md:text-5xl">
+                                    Bawana Project
+                                </h3>
+
+                                <p class="mt-5 max-w-xl text-base leading-7 text-[#C8BBA9]">
+                                    A project exploring ideas around technology, creativity,
+                                    and meaningful impact.
+                                </p>
+                            </div>
+
+                            <a href="https://bawana.org" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex w-fit items-center gap-2 text-sm font-medium text-[#D7A64A] transition hover:text-[#F7F3EA]">
+                                Visit project
+                                <span aria-hidden="true">↗</span>
+                            </a>
+
+                        </article>
+
+
+                        <!-- Project 02 -->
+                        <article
+                            class="project-card relative flex h-[360px] w-[min(72vw,720px)] shrink-0 flex-col justify-between border border-[#D7A64A]/25 bg-[#3A2714] p-8 md:h-[400px] md:p-10">
+
+                            <div>
+                                <div class="mb-8 flex items-center justify-between">
+                                    <span class="text-sm font-medium tracking-[0.2em] text-[#D7A64A]">
+                                        02
+                                    </span>
+
+                                    <span class="text-xs uppercase tracking-[0.2em] text-[#8B7355]">
+                                        Prototype
+                                    </span>
+                                </div>
+
+                                <h3 class="max-w-xl text-4xl font-semibold tracking-tight text-[#F7F3EA] md:text-5xl">
+                                    PosturKu
+                                </h3>
+
+                                <p class="mt-5 max-w-xl text-base leading-7 text-[#C8BBA9]">
+                                    A prototype exploring technology-assisted posture
+                                    monitoring and interaction.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Project 03 -->
+                        <article
+                            class="project-card relative flex h-[360px] w-[min(72vw,720px)] shrink-0 flex-col justify-between border border-[#D7A64A]/25 bg-[#3A2714] p-8 md:h-[400px] md:p-10">
+
+                            <div>
+                                <div class="mb-8 flex items-center justify-between">
+                                    <span class="text-sm font-medium tracking-[0.2em] text-[#D7A64A]">
+                                        03
+                                    </span>
+
+                                    <span class="text-xs uppercase tracking-[0.2em] text-[#8B7355]">
+                                        Android · Computer Vision
+                                    </span>
+                                </div>
+
+                                <h3 class="max-w-xl text-4xl font-semibold tracking-tight text-[#F7F3EA] md:text-5xl">
+                                    Drowsiness Detector
+                                </h3>
+
+                                <p class="mt-5 max-w-xl text-base leading-7 text-[#C8BBA9]">
+                                    An Android application exploring the detection of driver
+                                    drowsiness through software and technology.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <!-- See More -->
+                        <a href="#"
+                            class="project-card flex h-[360px] w-[min(50vw,420px)] shrink-0 flex-col items-center justify-center border border-[#D7A64A]/25 bg-[#D7A64A] p-8 text-center md:h-[400px]">
+                            <span class="text-xs font-medium uppercase tracking-[0.25em] text-[#2F1F0E]/70">
+                                Explore more
+                            </span>
+
+                            <span class="mt-4 text-3xl font-semibold text-[#2F1F0E] md:text-4xl">
+                                See More
+                            </span>
+
+                            <span class="mt-6 text-2xl text-[#2F1F0E]">
+                                →
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project progress -->
+                <div
+                    class="mx-auto flex w-full max-w-screen-xl items-center justify-between px-6 sm:px-8 lg:px-10">
+
+                    <div class="flex items-center gap-3">
+                        <span class="h-1.5 w-8 rounded-full bg-[#D7A64A]"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-[#D7A64A]/30"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-[#D7A64A]/30"></span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-[#D7A64A]/30"></span>
+                    </div>
+
+                    <span class="text-xs uppercase tracking-[0.2em] text-[#8B7355]">
+                        Scroll to explore
+                    </span>
+
+                </div>
+
+            </div>
         </section>
-
-
         <!-- Contact -->
-        <section id="contact">
-            <h2>Contact</h2>
-
-            <p>
-                Interested in working together?
-            </p>
-
-            <a href="mailto:hello@reiandraa.com">
-                hello@reiandraa.com
-            </a>
+        <section id="contact" class="panel relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#F7F3EA]">
+            <div class="mx-auto flex h-full w-full max-w-screen-xl items-center justify-center px-6 lg:px-8">
+                <!-- Contact content -->
+                <div class="mx-auto max-w-4xl text-center">
+                    <!-- Label -->
+                    <div class="mb-8 flex items-center justify-center gap-4">
+                        <span class="h-px w-10 bg-[#D7A64A]"></span>
+                        <span class="text-sm font-medium uppercase tracking-[0.25em] text-[#8B7355]">
+                            Contact
+                        </span>
+                        <span class="h-px w-10 bg-[#D7A64A]"></span>
+                    </div>
+                    <!-- Heading -->
+                    <h2
+                        class="text-5xl font-semibold leading-tight tracking-tight text-[#2F1F0E] md:text-6xl lg:text-7xl">
+                        Let's build
+                        <span class="text-[#8B7355]">something.</span>
+                    </h2>
+                    <!-- Description -->
+                    <p class="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#5F5142] md:text-xl md:leading-9">
+                        Have an idea, a project, or something you'd like to
+                        build together? I'm open to conversations around
+                        software, technology, and creative projects.
+                    </p>
+                    <!-- Email -->
+                    <div class="mt-12">
+                        <a href="mailto:rassya@reiandraa.com"
+                            class="group inline-flex items-center gap-3 text-xl font-medium text-[#2F1F0E] transition md:text-2xl">
+                            <span class="border-b-2 border-[#D7A64A] pb-2">
+                                rassya@reiandraa.com
+                            </span>
+                            <span aria-hidden="true"
+                                class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                ↗
+                            </span>
+                        </a>
+                    </div>
+                    <!-- Social links -->
+                    <div class="mx-auto mt-16 flex w-full max-w-2xl items-center justify-start gap-8 text-left text-sm">
+                        <a href="https://github.com/Reiandraa" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                            class="contact-social-link inline-flex items-center gap-2 text-[#8B7355] transition hover:text-[#2F1F0E]">
+                            <svg class="contact-social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor"
+                                    d="M12 2.5a9.5 9.5 0 0 0-3 18.52c.48.09.65-.21.65-.46v-1.67c-2.65.58-3.21-1.12-3.21-1.12-.43-1.1-1.06-1.39-1.06-1.39-.87-.59.07-.58.07-.58.96.07 1.47.99 1.47.99.85 1.46 2.23 1.04 2.77.8.09-.62.33-1.04.6-1.28-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.88.99-2.54-.1-.24-.43-1.2.09-2.5 0 0 .81-.26 2.62.97a9.1 9.1 0 0 1 4.76 0c1.81-1.23 2.62-.97 2.62-.97.52 1.3.19 2.26.09 2.5.62.66.99 1.5.99 2.54 0 3.67-2.23 4.48-4.36 4.72.34.3.64.88.64 1.78v2.64c0 .25.17.55.65.46A9.5 9.5 0 0 0 12 2.5Z" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <span class="text-[#D7A64A]">·</span>
+                        <a href="#" aria-label="LinkedIn"
+                            class="contact-social-link inline-flex items-center gap-2 text-[#8B7355] transition hover:text-[#2F1F0E]">
+                            <svg class="contact-social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor"
+                                    d="M5.2 3.5A2.2 2.2 0 1 1 5.2 7.9a2.2 2.2 0 0 1 0-4.4ZM3.3 9.4h3.8v11.1H3.3V9.4Zm6.1 0h3.6v1.52h.05c.5-.95 1.73-1.95 3.57-1.95 3.82 0 4.53 2.51 4.53 5.77v5.76h-3.8v-5.11c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7v5.2H9.4V9.4Z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <!-- Bottom ornament -->
+                <div class="mt-24 flex items-center justify-center">
+                    <div class="flex items-center gap-3 opacity-60">
+                        <span class="h-px w-16 bg-[#D7A64A]"></span>
+                        <span class="text-lg text-[#D7A64A]">◆</span>
+                        <span class="h-px w-16 bg-[#D7A64A]"></span>
+                    </div>
+                </div>
+            </div>
         </section>
-
     </main>
 
-
-    <footer>
-        <p>© 2026 Reiandraa</p>
+    <!-- Footer -->
+    <footer id="footer" class="border-t border-[#2F1F0E]/10 bg-[#F7F3EA]">
+        <div
+            class="mx-auto flex max-w-screen-xl flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between lg:px-8">
+            <!-- Copyright -->
+            <div>
+                <p class="text-sm text-[#8B7355]">
+                    © 2026
+                    <span class="font-medium text-[#2F1F0E]">Reiandraa</span>
+                </p>
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="flex flex-wrap items-center gap-6 text-sm">
+                    <li>
+                        <a href="#about" class="text-[#8B7355] transition hover:text-[#2F1F0E]">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="text-[#8B7355] transition hover:text-[#2F1F0E]">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-[#8B7355] transition hover:text-[#2F1F0E]">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </footer>
 
-
-    <script src="script.js"></script>
+    <!-- Wayang Cursor -->
+    <div id="stage"></div>
+    <div id="wayangBodyLayer">
+        <div id="bodyStick" class="wayang-stick"></div>
+        <img id="body" class="layer" src="assets/wayang-body.png" draggable="false" alt="">
+        <div id="leftShoulder"></div>
+    </div>
+    <div id="wayangPointerLayer">
+        <div id="handStick" class="wayang-stick"></div>
+        <img id="arm" class="layer" src="assets/arm-pointy-matched.svg" draggable="false" alt="">
+    </div>
+    <div id="cursorDot"></div>
+    <script type="module" src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 </body>
+
 </html>
-```
