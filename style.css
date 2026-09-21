@@ -2204,3 +2204,20 @@ h3 {
   #projectsTrack .project-card a:hover span[aria-hidden="true"],
   #contact a:hover span[aria-hidden="true"] { transform: none; }
 }
+
+/* Phone project shelf: swipe sideways, or continue down the page at any time. */
+@media (max-width: 767px) {
+  #projectsViewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 20px;
+    overscroll-behavior-x: contain;
+    padding-inline: 20px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  #projectsTrack { touch-action: auto; padding-right: 20px; }
+  #projectsTrack .project-card,
+  #projectsTrack > a.project-card { width: calc(100vw - 72px); scroll-snap-align: start; }
+}

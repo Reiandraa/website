@@ -167,21 +167,40 @@ function updateProjectProgress(progress) {
 }
 updateProjectProgress(0);
 
-// Keep the section pinned while vertical scrolling moves its existing cards.
-const projectsAnimation = gsap.to(projectsTrack, {
-    x: () => -projectTravel(),
-    ease: "none",
-    scrollTrigger: {
-        trigger: projectsSection,
-        start: "top top",
-        end: () => `+=${Math.max(1, projectTravel())}`,
-        pin: true,
-        scrub: true,
-        invalidateOnRefresh: true,
-        onUpdate: self => updateProjectProgress(self.progress)
-    }
+// Native horizontal swiping on phones; preserve the pinned desktop animation.
+let projectsTrigger = null;
+const projectModes = gsap.matchMedia();
+projectModes.add('(min-width: 768px)', () => {
+    projectsViewport.scrollLeft = 0;
+    const animation = gsap.to(projectsTrack, {
+        x: () => -projectTravel(),
+        ease: 'none',
+        scrollTrigger: {
+            trigger: projectsSection,
+            start: 'top top',
+            end: () => `+=${Math.max(1, projectTravel())}`,
+            pin: true,
+            scrub: true,
+            invalidateOnRefresh: true,
+            onUpdate: self => updateProjectProgress(self.progress)
+        }
+    });
+    projectsTrigger = animation.scrollTrigger;
+    return () => { projectsTrigger = null; };
 });
-const projectsTrigger = projectsAnimation.scrollTrigger;
+projectModes.add('(max-width: 767px)', () => {
+    const updateMobileProgress = () => {
+        const maxScroll = projectsViewport.scrollWidth - projectsViewport.clientWidth;
+        updateProjectProgress(maxScroll > 0 ? projectsViewport.scrollLeft / maxScroll : 0);
+    };
+    updateMobileProgress();
+    projectsViewport.addEventListener('scroll', updateMobileProgress, { passive: true });
+    window.addEventListener('resize', updateMobileProgress);
+    return () => {
+        projectsViewport.removeEventListener('scroll', updateMobileProgress);
+        window.removeEventListener('resize', updateMobileProgress);
+    };
+});
 
 // Recalculate travel after fonts settle, as well as on ScrollTrigger's resize refresh.
 document.fonts.ready.then(() => ScrollTrigger.refresh());
@@ -209,7 +228,7 @@ function goToSection(index, fromBelow = false) {
     sectionTween = gsap.to(window, {
         duration: reducedMotion.matches ? 0 : 0.8,
         scrollTo: {
-            y: index === projectsSectionIndex
+            y: index === projectsSectionIndex && projectsTrigger
                 ? (fromBelow ? projectsTrigger.end : projectsTrigger.start)
                 : verticalSections[index],
             autoKill: false
@@ -276,7 +295,7 @@ window.addEventListener(
     event => {
         if (matchMedia("(max-width: 767px), (pointer: coarse)").matches) return;
         const scrollY = window.scrollY;
-        const inProjects = scrollY >= projectsTrigger.start - 1
+        const inProjects = projectsTrigger && scrollY >= projectsTrigger.start - 1
             && scrollY <= projectsTrigger.end + 1;
         const delta = inProjects && Math.abs(event.deltaX) > Math.abs(event.deltaY)
             ? event.deltaX : event.deltaY;
