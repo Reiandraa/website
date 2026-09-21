@@ -5,9 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reiandraa — Portfolio</title>
-    <meta name="description" content="Personal portfolio of Reiandraa.">
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <meta name="description" content="Meet Rassya (Reiandraa), a student developer exploring software, music, and creativity. Discover projects and get in touch.">
+    <link rel="canonical" href="https://reiandraa.com/">
+    <meta name="theme-color" content="#F3EBDD">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Reiandraa">
+    <meta property="og:title" content="Reiandraa — Code, music, and creativity">
+    <meta property="og:description" content="Meet Rassya, a student developer exploring software, music, and creative ideas. Explore selected projects and get in touch.">
+    <meta property="og:url" content="https://reiandraa.com/">
+    <meta property="og:image" content="https://reiandraa.com/assets/social-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Reiandraa's gold R and wayang emblem">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reiandraa — Code, music, and creativity">
+    <meta name="twitter:description" content="Software projects, musical experiments, and creative ideas by Rassya.">
+    <meta name="twitter:image" content="https://reiandraa.com/assets/social-preview.jpg">
+    <link rel="icon" type="image/png" href="/assets/site-icon.png">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Javanese&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 
@@ -15,7 +31,7 @@
 
     <header id="siteNav">
 
-        <nav class="w-full">
+        <nav class="w-full" aria-label="Main navigation">
 
             <div class="flex w-full items-center justify-center gap-8">
 
@@ -51,12 +67,25 @@
         <!-- Hero -->
         <section id="hero" class="panel relative h-screen min-h-screen w-full overflow-hidden bg-[#F7F3EA]">
 
-            <!-- Background ornaments -->
-            <img src="assets/ornament-mega-mendung.svg" alt="" aria-hidden="true"
-                class="pointer-events-none absolute -right-24 top-16 w-[420px] opacity-[0.08]">
+            <!-- Decorative studies inspired by kawung, aksara, and wayang gunungan. -->
+            <div class="hero-ornaments" aria-hidden="true">
+                <div class="hero-ornament ornament-kawung" data-depth="16">
+                    <svg viewBox="0 0 220 220" fill="none"><defs><g id="hero-kawung"><ellipse cx="-17" cy="-17" rx="12" ry="24" transform="rotate(-45 -17 -17)"/><ellipse cx="17" cy="-17" rx="12" ry="24" transform="rotate(45 17 -17)"/><ellipse cx="-17" cy="17" rx="12" ry="24" transform="rotate(45 -17 17)"/><ellipse cx="17" cy="17" rx="12" ry="24" transform="rotate(-45 17 17)"/><circle r="3"/></g></defs><g stroke="currentColor" stroke-width="1.2"><use href="#hero-kawung" x="65" y="65"/><use href="#hero-kawung" x="151" y="65"/><use href="#hero-kawung" x="65" y="151"/><use href="#hero-kawung" x="151" y="151"/></g></svg>
+                </div>
+                <div class="hero-ornament ornament-aksara" data-depth="-12"><span lang="jv">ꦲꦤꦕꦫꦏ</span></div>
+                <div class="hero-ornament ornament-gunungan" data-depth="24">
+                    <svg viewBox="0 0 200 320" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M100 18C88 65 24 116 21 190c-2 37 27 64 79 64s81-27 79-64C176 116 112 65 100 18Z"/><path d="M100 41c-13 39-62 95-63 148-1 30 21 49 63 49s64-19 63-49c-1-53-50-109-63-148ZM100 254v51M100 225V84M100 122l-19-18m19 41 25-23m-25 51-37-30m37 55 42-37"/><path d="M81 104q-28-6-19-25 23 0 19 25Zm44 18q-1-29 21-24 5 20-21 24ZM63 143q-25 2-19-21 22-2 19 21Zm79 18q-2-24 18-20 4 17-18 20M63 224v-25l37-26 37 26v25M86 237v-26q14-19 28 0v26"/><circle cx="100" cy="69" r="4"/></svg>
+                </div>
+                <div class="hero-ornament ornament-parang" data-depth="-18"><svg viewBox="0 0 210 100" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m10 78 48-56q17-17 22-4t-9 23L39 77m28 1 48-56q17-17 22-4t-9 23L96 77m28 1 48-56q17-17 22-4t-9 23l-32 36"/><path d="m20 93 8-9 8 9-8 7zm57 0 8-9 8 9-8 7zm57 0 8-9 8 9-8 7z"/></svg></div>
+                <div class="hero-ornament ornament-flower" data-depth="10"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></div>
+<div class="hero-ornament ornament-cloud" data-depth="-14"><svg viewBox="0 0 260 135" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 107q-7-26 23-28-8-30 26-32 8-38 42-20 27-32 55-2 32-10 40 22 33-2 34 30 29 1 18 30ZM27 96q-5-17 23-16-6-24 25-23 8-29 29-12 26-26 47-4 27-5 31 23 29-3 29 22 21-1 23 10ZM53 91q-2-18 27-16 10-25 28-11 22-20 39-4 23 2 23 25 24-4 25 10M83 96q7-20 25-10 18-17 34 0"/></svg></div>
+<div class="hero-ornament ornament-leaf" data-depth="12"><svg viewBox="0 0 150 230" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M32 218Q103 127 98 14M63 174q-66-8-46-43 36 3 46 43Zm17-43q55-12 49-48-39 6-49 48ZM93 94q-54-8-44-43 32 1 44 43Zm6-42q35-10 23-41-23 11-23 41Z"/></svg></div>
+            </div>
 
-            <img src="assets/ornament-batik.svg" alt="" aria-hidden="true"
-                class="pointer-events-none absolute -left-32 bottom-0 w-[360px] opacity-[0.04]">
+            <div class="hero-portrait" aria-label="Portrait Reiandraa">
+                <div class="portrait-halo" aria-hidden="true"></div>
+                <img src="assets/hero-portrait.webp" width="1000" height="1333" alt="Reiandraa mengenakan kacamata hitam" fetchpriority="high" decoding="async">
+            </div>
 
             <!-- Hero content -->
             <div class="relative mx-auto flex h-full w-full max-w-screen-xl items-center px-6 lg:px-8">
@@ -95,21 +124,6 @@
                 </div>
 
 
-                <!-- RIGHT -->
-                <div class="relative hidden h-[560px] w-[42%] items-center justify-center lg:flex">
-
-                    <!-- Gunungan -->
-                    <img src="assets/ornament-gunungan.svg" alt="" aria-hidden="true"
-                        class="absolute h-[430px] w-auto opacity-[0.10]">
-
-                    <!-- Wayang -->
-                    <img src="assets/hero-wayang.svg" alt="" class="relative z-10 max-h-[500px] w-auto object-contain">
-
-                    <!-- Batik -->
-                    <img src="assets/ornament-batik.svg" alt="" aria-hidden="true"
-                        class="absolute -bottom-4 -right-4 w-32 opacity-[0.10]">
-
-                </div>
 
             </div>
 
@@ -117,6 +131,8 @@
         <!-- About -->
         <section id="about"
             class="panel relative h-[100svh] min-h-[100svh] w-full shrink-0 overflow-hidden bg-[#F7F3EA]">
+<aside class="extra-ornaments" aria-hidden="true"><span class="hero-ornament extra-kawung" data-depth="12"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></span><span class="hero-ornament extra-lines" data-depth="-10"><svg viewBox="0 0 150 70" fill="none" stroke="currentColor"><path d="M5 55Q35 5 65 35T145 15M5 65Q35 15 65 45T145 25M5 45Q35-5 65 25T145 5"/></svg></span></aside>
+            <div class="hero-ornaments section-ornaments" aria-hidden="true"><div class="hero-ornament ornament-cloud" data-depth="-14"><svg viewBox="0 0 260 135" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 107q-7-26 23-28-8-30 26-32 8-38 42-20 27-32 55-2 32-10 40 22 33-2 34 30 29 1 18 30ZM27 96q-5-17 23-16-6-24 25-23 8-29 29-12 26-26 47-4 27-5 31 23 29-3 29 22 21-1 23 10ZM53 91q-2-18 27-16 10-25 28-11 22-20 39-4 23 2 23 25 24-4 25 10M83 96q7-20 25-10 18-17 34 0"/></svg></div><div class="hero-ornament ornament-leaf" data-depth="12"><svg viewBox="0 0 150 230" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M32 218Q103 127 98 14M63 174q-66-8-46-43 36 3 46 43Zm17-43q55-12 49-48-39 6-49 48ZM93 94q-54-8-44-43 32 1 44 43Zm6-42q35-10 23-41-23 11-23 41Z"/></svg></div><div class="hero-ornament ornament-flower" data-depth="-10"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></div><div class="hero-ornament ornament-aksara" data-depth="8"><span lang="jv">ꦲꦤꦕꦫꦏ</span></div></div>
             <div class="mx-auto flex h-full w-full max-w-screen-xl flex-col justify-center px-6 lg:px-8">
                 <!-- Small label -->
                 <div class="mb-8 flex items-center gap-4">
@@ -125,30 +141,28 @@
                         About Me
                     </span>
                 </div>
-                <div class="grid gap-12 lg:grid-cols-12 lg:gap-20">
+                <div class="about-layout grid gap-12 lg:grid-cols-12 lg:gap-20">
                     <!-- Heading -->
                     <div class="lg:col-span-5">
                         <h2
                             class="text-4xl font-semibold leading-tight tracking-tight text-[#2F1F0E] md:text-5xl lg:text-6xl">
-                            Building things
-                            <span class="block text-[#8B7355]">with curiosity.</span>
+                            Curiosity in mind.
+                            <span class="block text-[#8B7355]">Creativity in practice.</span>
                         </h2>
                     </div>
                     <!-- Description -->
-                    <div class="lg:col-span-7 lg:pt-2">
+                    <div class="about-story lg:col-span-7 lg:pt-2">
                         <p class="max-w-2xl text-lg leading-8 text-[#5F5142] md:text-xl md:leading-9">
-                            I'm a student developer exploring the space between
-                            <span class="font-medium text-[#2F1F0E]">code, music, and technology.</span>
+                            I'm Rassya, a student developer who learns by making —
+                            <span class="font-medium text-[#2F1F0E]">from software experiments to musical ideas.</span>
                         </p>
                         <p class="mt-6 max-w-2xl text-base leading-7 text-[#796B5B] md:text-lg md:leading-8">
-                            I enjoy turning ideas into things I can build, experiment with,
-                            and interact with — from software projects to musical experiments
-                            and everything in between.
+                            I turn questions into small experiments, then keep refining them.
+                            Building helps me understand how things work and discover what they could become.
                         </p>
                         <p class="mt-6 max-w-2xl text-base leading-7 text-[#796B5B] md:text-lg md:leading-8">
-                            For me, technology is not just about writing code.
-                            It's about exploring ideas, learning along the way,
-                            and creating something meaningful from them.
+                            Code gives me a way to solve problems. Music shapes how I listen and create.
+                            My Javanese roots bring a sense of identity to both.
                         </p>
                         <!-- Interests -->
                         <div class="mt-10 flex flex-wrap gap-3">
@@ -177,6 +191,7 @@
         </section>
         <!-- Projects -->
         <section id="projects" class="panel relative w-full overflow-hidden bg-[#2F1F0E]">
+<aside class="extra-ornaments" aria-hidden="true"><span class="hero-ornament extra-kawung" data-depth="12"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></span><span class="hero-ornament extra-lines" data-depth="-10"><svg viewBox="0 0 150 70" fill="none" stroke="currentColor"><path d="M5 55Q35 5 65 35T145 15M5 65Q35 15 65 45T145 25M5 45Q35-5 65 25T145 5"/></svg></span></aside>
             <!-- Projects viewport -->
             <div class="relative flex h-full w-full flex-col justify-center gap-16">
 
@@ -219,6 +234,8 @@
                         <!-- Project 01 -->
                         <article
                             class="project-card relative flex h-[360px] w-[min(72vw,720px)] shrink-0 flex-col justify-between border border-[#D7A64A]/25 bg-[#3A2714] p-8 md:h-[400px] md:p-10">
+                            <figure class="project-preview"><img src="assets/projects/bawana.svg" width="640" height="320" alt="Concept illustration — Bawana: connections and ideas" decoding="async"><figcaption>Concept preview</figcaption></figure>
+
 
                             <div>
                                 <div class="mb-8 flex items-center justify-between">
@@ -253,6 +270,8 @@
                         <!-- Project 02 -->
                         <article
                             class="project-card relative flex h-[360px] w-[min(72vw,720px)] shrink-0 flex-col justify-between border border-[#D7A64A]/25 bg-[#3A2714] p-8 md:h-[400px] md:p-10">
+                            <figure class="project-preview"><img src="assets/projects/posturku.svg" width="640" height="320" alt="Concept illustration — PosturKu: posture alignment" decoding="async"><figcaption>Concept preview</figcaption></figure>
+
 
                             <div>
                                 <div class="mb-8 flex items-center justify-between">
@@ -281,6 +300,8 @@
                         <!-- Project 03 -->
                         <article
                             class="project-card relative flex h-[360px] w-[min(72vw,720px)] shrink-0 flex-col justify-between border border-[#D7A64A]/25 bg-[#3A2714] p-8 md:h-[400px] md:p-10">
+                            <figure class="project-preview"><img src="assets/projects/drowsiness.svg" width="640" height="320" alt="Concept illustration — Drowsiness Detector: facial landmark detection" decoding="async"><figcaption>Concept preview</figcaption></figure>
+
 
                             <div>
                                 <div class="mb-8 flex items-center justify-between">
@@ -307,7 +328,7 @@
 
 
                         <!-- See More -->
-                        <a href="#"
+                        <a href="/Projects"
                             class="project-card flex h-[360px] w-[min(50vw,420px)] shrink-0 flex-col items-center justify-center border border-[#D7A64A]/25 bg-[#D7A64A] p-8 text-center md:h-[400px]">
                             <span class="text-xs font-medium uppercase tracking-[0.25em] text-[#2F1F0E]/70">
                                 Explore more
@@ -331,7 +352,7 @@
                 <div
                     class="mx-auto flex w-full max-w-screen-xl items-center justify-between px-6 sm:px-8 lg:px-10">
 
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3" data-project-progress aria-hidden="true">
                         <span class="h-1.5 w-8 rounded-full bg-[#D7A64A]"></span>
                         <span class="h-1.5 w-1.5 rounded-full bg-[#D7A64A]/30"></span>
                         <span class="h-1.5 w-1.5 rounded-full bg-[#D7A64A]/30"></span>
@@ -348,6 +369,8 @@
         </section>
         <!-- Contact -->
         <section id="contact" class="panel relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#F7F3EA]">
+<aside class="extra-ornaments" aria-hidden="true"><span class="hero-ornament extra-kawung" data-depth="12"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></span><span class="hero-ornament extra-lines" data-depth="-10"><svg viewBox="0 0 150 70" fill="none" stroke="currentColor"><path d="M5 55Q35 5 65 35T145 15M5 65Q35 15 65 45T145 25M5 45Q35-5 65 25T145 5"/></svg></span></aside>
+            <div class="hero-ornaments section-ornaments" aria-hidden="true"><div class="hero-ornament ornament-cloud" data-depth="-14"><svg viewBox="0 0 260 135" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 107q-7-26 23-28-8-30 26-32 8-38 42-20 27-32 55-2 32-10 40 22 33-2 34 30 29 1 18 30ZM27 96q-5-17 23-16-6-24 25-23 8-29 29-12 26-26 47-4 27-5 31 23 29-3 29 22 21-1 23 10ZM53 91q-2-18 27-16 10-25 28-11 22-20 39-4 23 2 23 25 24-4 25 10M83 96q7-20 25-10 18-17 34 0"/></svg></div><div class="hero-ornament ornament-leaf" data-depth="12"><svg viewBox="0 0 150 230" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M32 218Q103 127 98 14M63 174q-66-8-46-43 36 3 46 43Zm17-43q55-12 49-48-39 6-49 48ZM93 94q-54-8-44-43 32 1 44 43Zm6-42q35-10 23-41-23 11-23 41Z"/></svg></div><div class="hero-ornament ornament-flower" data-depth="-10"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></div><div class="hero-ornament ornament-aksara" data-depth="8"><span lang="jv">ꦲꦤꦕꦫꦏ</span></div></div>
             <div class="mx-auto flex h-full w-full max-w-screen-xl items-center justify-center px-6 lg:px-8">
                 <!-- Contact content -->
                 <div class="mx-auto max-w-4xl text-center">
@@ -362,17 +385,17 @@
                     <!-- Heading -->
                     <h2
                         class="text-5xl font-semibold leading-tight tracking-tight text-[#2F1F0E] md:text-6xl lg:text-7xl">
-                        Let's build
-                        <span class="text-[#8B7355]">something.</span>
+                        Good things start
+                        <span class="text-[#8B7355]">with a conversation.</span>
                     </h2>
                     <!-- Description -->
                     <p class="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#5F5142] md:text-xl md:leading-9">
-                        Have an idea, a project, or something you'd like to
-                        build together? I'm open to conversations around
-                        software, technology, and creative projects.
+                        An idea to explore, a project to build, or a shared interest in code and music?
+                        I'd love to hear what you're thinking.
                     </p>
                     <!-- Email -->
-                    <div class="mt-12">
+                    <div class="mt-12 contact-email">
+                        <p class="contact-caption">Say hello</p>
                         <a href="mailto:rassya@reiandraa.com"
                             class="group inline-flex items-center gap-3 text-xl font-medium text-[#2F1F0E] transition md:text-2xl">
                             <span class="border-b-2 border-[#D7A64A] pb-2">
@@ -395,7 +418,7 @@
                             GitHub
                         </a>
                         <span class="text-[#D7A64A]">·</span>
-                        <a href="#" aria-label="LinkedIn"
+                        <a href="https://www.linkedin.com/in/rassya-rayandra-15b004439/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                             class="contact-social-link inline-flex items-center gap-2 text-[#8B7355] transition hover:text-[#2F1F0E]">
                             <svg class="contact-social-icon" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill="currentColor"
@@ -419,6 +442,7 @@
 
     <!-- Footer -->
     <footer id="footer" class="border-t border-[#2F1F0E]/10 bg-[#F7F3EA]">
+<aside class="extra-ornaments" aria-hidden="true"><span class="hero-ornament extra-kawung" data-depth="12"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor"><use href="#hero-kawung" x="50" y="50"/></svg></span><span class="hero-ornament extra-lines" data-depth="-10"><svg viewBox="0 0 150 70" fill="none" stroke="currentColor"><path d="M5 55Q35 5 65 35T145 15M5 65Q35 15 65 45T145 25M5 45Q35-5 65 25T145 5"/></svg></span></aside>
         <div
             class="mx-auto flex max-w-screen-xl flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between lg:px-8">
             <!-- Copyright -->
@@ -455,7 +479,7 @@
     <div id="stage"></div>
     <div id="wayangBodyLayer">
         <div id="bodyStick" class="wayang-stick"></div>
-        <img id="body" class="layer" src="assets/wayang-body.png" draggable="false" alt="">
+        <img id="body" class="layer" src="assets/wayang-body.webp" draggable="false" alt="">
         <div id="leftShoulder"></div>
     </div>
     <div id="wayangPointerLayer">

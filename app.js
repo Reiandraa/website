@@ -1,8 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import EmblaCarousel from "embla-carousel";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const body = document.querySelector('#body');
 const arm = document.querySelector('#arm');
@@ -32,7 +32,12 @@ addEventListener('pointermove', e => {
     mouse.y = e.clientY;
 }, { passive: true });
 
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const cursorEnabled = matchMedia("(hover: hover) and (pointer: fine) and (min-width: 768px) and (prefers-reduced-motion: no-preference)");
+let cursorFrame;
+
 function render() {
+    if (!cursorEnabled.matches) return;
     const angle = Math.atan2(
         mouse.y - innerHeight / 2,
         mouse.x - innerWidth / 2
@@ -79,15 +84,19 @@ function render() {
     bodyStick.style.top = bodyStickY + 'px';
     bodyStick.style.height = Math.max(0, innerHeight - bodyStickY) + 'px';
 
-    requestAnimationFrame(render);
+    cursorFrame = requestAnimationFrame(render);
 }
 
 render();
+cursorEnabled.addEventListener("change", () => {
+    cancelAnimationFrame(cursorFrame);
+    render();
+});
 
 const siteNav = document.querySelector('#siteNav');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.panel, #footer');
-let projectsScrollMode = false;
+
 
 const sectionObserver = new IntersectionObserver(
     entries => {
@@ -95,9 +104,11 @@ const sectionObserver = new IntersectionObserver(
             if (!entry.isIntersecting) return;
 
             const currentSection = entry.target.id;
-            projectsScrollMode = currentSection === 'projects';
+
 
             navLinks.forEach(link => {
+                if (link.dataset.section === currentSection) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
                 link.classList.toggle(
                     'active',
                     link.dataset.section === currentSection
@@ -137,13 +148,53 @@ let currentSection = 0;
 let isSectionAnimating = false;
 
 const projectsViewport = document.querySelector("#projectsViewport");
-let emblaApi = null;
-let projectCarouselMoving = false;
+const projectsTrack = document.querySelector("#projectsTrack");
+const projectsSection = document.querySelector("#projects");
+const projectTravel = () => {
+    const styles = getComputedStyle(projectsViewport);
+    const availableWidth = projectsViewport.clientWidth
+        - parseFloat(styles.paddingLeft) - parseFloat(styles.paddingRight);
+    return Math.max(0, projectsTrack.scrollWidth - availableWidth);
+};
+
+const progressDots = document.querySelectorAll('[data-project-progress] span');
+function updateProjectProgress(progress) {
+    const active = Math.round(progress * (progressDots.length - 1));
+    progressDots.forEach((dot, index) => {
+        dot.style.width = index === active ? '2rem' : '0.375rem';
+        dot.style.backgroundColor = index === active ? '#D7A64A' : 'rgba(215, 166, 74, 0.3)';
+    });
+}
+updateProjectProgress(0);
+
+// Keep the section pinned while vertical scrolling moves its existing cards.
+const projectsAnimation = gsap.to(projectsTrack, {
+    x: () => -projectTravel(),
+    ease: "none",
+    scrollTrigger: {
+        trigger: projectsSection,
+        start: "top top",
+        end: () => `+=${Math.max(1, projectTravel())}`,
+        pin: true,
+        scrub: true,
+        invalidateOnRefresh: true,
+        onUpdate: self => updateProjectProgress(self.progress)
+    }
+});
+const projectsTrigger = projectsAnimation.scrollTrigger;
+
+// Recalculate travel after fonts settle, as well as on ScrollTrigger's resize refresh.
+document.fonts.ready.then(() => ScrollTrigger.refresh());
 const projectsSectionIndex = verticalSections.indexOf(
     document.querySelector("#projects")
 );
 
-function goToSection(index) {
+let sectionTween;
+reducedMotion.addEventListener("change", () => {
+    if (reducedMotion.matches && isSectionAnimating) sectionTween?.progress(1);
+});
+
+function goToSection(index, fromBelow = false) {
     if (index < 0 || index >= verticalSections.length) {
         return;
     }
@@ -155,10 +206,12 @@ function goToSection(index) {
     currentSection = index;
     isSectionAnimating = true;
 
-    gsap.to(window, {
-        duration: 0.8,
+    sectionTween = gsap.to(window, {
+        duration: reducedMotion.matches ? 0 : 0.8,
         scrollTo: {
-            y: verticalSections[index],
+            y: index === projectsSectionIndex
+                ? (fromBelow ? projectsTrigger.end : projectsTrigger.start)
+                : verticalSections[index],
             autoKill: false
         },
         ease: "power2.inOut",
@@ -215,80 +268,59 @@ document.querySelectorAll(
     });
 });
 
-if (projectsViewport) {
-    emblaApi = EmblaCarousel(
-        projectsViewport,
-        {
-            align: "end",
-            containScroll: "trimSnaps",
-            dragFree: false,
-            loop: false,
-            skipSnaps: false,
-            slidesToScroll: 1
-        }
-    );
-
-    emblaApi.on("settle", () => {
-        projectCarouselMoving = false;
-    });
-}
 
 let wheelLocked = false;
 
 window.addEventListener(
     "wheel",
     event => {
-        if (event.deltaY === 0) {
-            return;
-        }
+        if (matchMedia("(max-width: 767px), (pointer: coarse)").matches) return;
+        const scrollY = window.scrollY;
+        const inProjects = scrollY >= projectsTrigger.start - 1
+            && scrollY <= projectsTrigger.end + 1;
+        const delta = inProjects && Math.abs(event.deltaX) > Math.abs(event.deltaY)
+            ? event.deltaX : event.deltaY;
 
-        const direction = event.deltaY > 0 ? 1 : -1;
-        let nextSection = currentSection + direction;
+        if (delta === 0) return;
 
-        const projectsIsActive =
-            projectsScrollMode ||
-            currentSection === projectsSectionIndex;
-
-        if (projectsIsActive && emblaApi) {
-            if (projectCarouselMoving) {
-                event.preventDefault();
-                return;
-            }
-
-            const scrollingDown = event.deltaY > 0;
-            const canMove = scrollingDown
-                ? emblaApi.canScrollNext()
-                : emblaApi.canScrollPrev();
-
-            if (canMove) {
-                event.preventDefault();
-                projectCarouselMoving = true;
-
-                if (scrollingDown) {
-                    emblaApi.scrollNext();
-                } else {
-                    emblaApi.scrollPrev();
-                }
-
-                return;
-            }
-
-            projectsScrollMode = false;
-            nextSection = projectsSectionIndex + direction;
-        }
-
-        if (wheelLocked) {
+        if (wheelLocked || isSectionAnimating) {
             event.preventDefault();
             return;
         }
 
-        if (nextSection < 0 || nextSection >= verticalSections.length) {
-            return;
+        // Consume wheel movement only while there are project cards to explore.
+        // Native vertical scroll also drives this animation for touch and keyboard.
+        if (inProjects) {
+            currentSection = projectsSectionIndex;
+            const canExplore = delta > 0
+                ? scrollY < projectsTrigger.end - 1
+                : scrollY > projectsTrigger.start + 1;
+
+            if (canExplore) {
+                event.preventDefault();
+                const pixels = delta * (event.deltaMode === 1 ? 16
+                    : event.deltaMode === 2 ? window.innerHeight : 1);
+                window.scrollTo({
+                    top: gsap.utils.clamp(projectsTrigger.start, projectsTrigger.end, scrollY + pixels),
+                    behavior: "instant"
+                });
+                return;
+            }
+        } else {
+            // Keep section navigation in sync after touch, keyboard, or anchor scrolling.
+            currentSection = verticalSections.reduce((nearest, section, index) =>
+                Math.abs(section.getBoundingClientRect().top)
+                    < Math.abs(verticalSections[nearest].getBoundingClientRect().top)
+                    ? index : nearest, 0);
         }
+
+        const direction = delta > 0 ? 1 : -1;
+        const nextSection = currentSection + direction;
+        if (nextSection < 0 || nextSection >= verticalSections.length) return;
 
         event.preventDefault();
         wheelLocked = true;
-        goToSection(nextSection);
+        goToSection(nextSection, direction < 0);
 
         setTimeout(() => {
             wheelLocked = false;
@@ -296,3 +328,28 @@ window.addEventListener(
     },
     { passive: false }
 );
+
+// Each light section has an independent, event-driven ornament field.
+const ornamentMotion = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+document.querySelectorAll('#hero, #about, #projects, #contact, #footer').forEach(section => {
+    const ornaments = [...section.querySelectorAll('.hero-ornament')];
+    function resetOrnaments() {
+        ornaments.forEach(ornament => {
+            ornament.style.setProperty('--ox', '0px');
+            ornament.style.setProperty('--oy', '0px');
+        });
+    }
+    section.addEventListener('pointermove', event => {
+        if (!ornamentMotion.matches || event.pointerType === 'touch') return;
+        const bounds = section.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        ornaments.forEach(ornament => {
+            const depth = Number(ornament.dataset.depth);
+            ornament.style.setProperty('--ox', `${x * depth}px`);
+            ornament.style.setProperty('--oy', `${y * depth}px`);
+        });
+    }, { passive: true });
+    section.addEventListener('pointerleave', resetOrnaments);
+    ornamentMotion.addEventListener('change', resetOrnaments);
+});

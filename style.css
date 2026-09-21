@@ -1524,7 +1524,8 @@ body {
 ========================================= */
 
 :root {
-  --jawa-ivory: #F7F3EA;
+  --jawa-ivory: #F3EBDD;
+  --jawa-ivory-rgb: 243, 235, 221;
   --jawa-brown: #2F1F0E;
   --jawa-gold: #D7A64A;
   --jawa-muted: #8B7355;
@@ -1616,7 +1617,7 @@ h3 {
 }
 
 #siteNav.nav-scrolled nav > div {
-  background: rgba(247, 243, 234, 0.94);
+  background: rgba(var(--jawa-ivory-rgb), 0.94);
   border-color: var(--jawa-gold-line);
   box-shadow: var(--jawa-shadow);
 }
@@ -1827,7 +1828,7 @@ h3 {
 
 #siteNav.nav-dark .nav-link,
 #siteNav.nav-dark .nav-link.active {
-  color: rgba(247, 243, 234, 0.72) !important;
+  color: rgba(var(--jawa-ivory-rgb), 0.72) !important;
 }
 
 #siteNav.nav-dark .nav-link:hover,
@@ -1845,7 +1846,7 @@ h3 {
 }
 
 #footer p {
-  color: rgba(247, 243, 234, 0.72) !important;
+  color: rgba(var(--jawa-ivory-rgb), 0.72) !important;
 }
 
 #footer p span {
@@ -1858,4 +1859,348 @@ h3 {
 
 #footer a:hover {
   color: var(--jawa-gold) !important;
+}
+
+/* Mobile navigation and scroll layout. */
+@media (max-width: 767px) {
+  #siteNav,
+  #siteNav.nav-scrolled {
+    position: fixed;
+    top: 0;
+    padding: max(10px, env(safe-area-inset-top)) 10px 10px;
+  }
+
+  #siteNav nav > div {
+    gap: 0;
+    justify-content: space-between;
+    padding: 4px;
+    background: rgba(var(--jawa-ivory-rgb), 0.96);
+    border-color: var(--jawa-gold-line);
+  }
+
+  #siteNav nav > div > span { display: none; }
+
+  #siteNav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  #siteNav .nav-link.active::after { bottom: 3px; }
+
+  .panel:not(#projects) {
+    height: auto;
+    min-height: 100svh;
+    padding-top: 88px;
+    padding-bottom: 32px;
+  }
+
+  #hero > div.relative { min-height: calc(100svh - 120px); }
+
+  #projects {
+    height: max(600px, 100svh);
+    min-height: 600px;
+  }
+
+  #projects > div {
+    gap: 24px;
+    padding-top: 84px;
+    padding-bottom: 24px;
+  }
+
+  #projects h2 { font-size: 2rem; }
+  #projects > div > div:first-child .grid { gap: 12px; }
+  #projects > div > div:first-child .mb-5 { margin-bottom: 12px; }
+  #projectsTrack .project-card,
+  #projectsTrack > a.project-card {
+    width: calc(100vw - 56px);
+    height: 300px;
+    padding: 24px;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (max-width: 767px) {
+  #wayangBodyLayer,
+  #wayangPointerLayer,
+  #cursorDot { display: none; }
+  html, body { cursor: auto; }
+}
+
+#siteNav .nav-link:focus-visible {
+  outline: 2px solid var(--jawa-gold);
+  outline-offset: 2px;
+}
+
+#projects [data-project-progress] span {
+  transition: width 180ms ease, background-color 180ms ease;
+}
+
+@media (max-width: 767px) {
+  #projects h2,
+  #projects h3 { color: var(--jawa-ivory); }
+  #projects h2 > span { color: var(--jawa-gold); }
+  #projects p { color: #C8BBA9; }
+  #projects article.project-card { background-color: #3A2714; }
+  #projectsTrack .project-card h3 { font-size: 1.875rem; line-height: 1.1; }
+  #projectsTrack .project-card p { margin-top: 16px; font-size: 14px; line-height: 1.6; }
+  #projectsTrack .project-card .mb-8 { margin-bottom: 20px; gap: 12px; }
+  #projectsTrack .project-card .mb-8 span { color: var(--jawa-gold); }
+  #projectsTrack .project-card .mb-8 span:last-child { text-align: right; }
+  #projects > div > div:first-child .mb-5 > span:last-child { color: var(--jawa-gold); }
+  #projectsTrack > a.project-card { background-color: var(--jawa-gold); color: var(--jawa-brown); }
+  #projectsTrack > a.project-card h3 { color: var(--jawa-brown); }
+}
+
+@media (max-width: 767px) {
+  #contact > div { flex-direction: column; height: auto; }
+  #contact > div > .max-w-4xl { width: 100%; min-width: 0; }
+  #contact > div > .mt-24 { margin-top: 32px; }
+  #contact h2 { overflow-wrap: anywhere; }
+}
+
+/* Refined spacing, retaining the existing pill navigation and palette. */
+#siteNav nav { width: min(680px, 100%); }
+#siteNav nav > div { gap: 8px; padding: 6px 10px; }
+#siteNav .nav-link { min-height: 44px; padding: 10px 18px; }
+#siteNav .nav-link[data-section="hero"] {
+  margin-right: auto;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+#siteNav nav > div > span { display: none; }
+#siteNav .nav-link.active::after { display: none; }
+@media (max-width: 767px) {
+  #siteNav nav > div { gap: 2px; padding: 4px; }
+  #siteNav .nav-link { padding: 8px; font-size: 11px; letter-spacing: 0; }
+  #siteNav .nav-link[data-section="hero"] { letter-spacing: 0.025em; }
+}
+
+/* Project concept previews: text and artwork share the existing cards. */
+#projectsTrack article.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-rows: 1fr auto;
+  gap: 16px 32px;
+}
+.project-preview {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(215, 166, 74, 0.25);
+  background: #302214;
+}
+.project-preview img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.project-preview figcaption {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  color: #C8BBA9;
+  font: 10px/1.4 "Open Sans", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+#projectsTrack article.project-card > div { grid-column: 1; grid-row: 1; min-width: 0; }
+#projectsTrack article.project-card > a { grid-column: 1; grid-row: 2; }
+@media (max-width: 767px) {
+  #projects { height: max(710px, 100svh); min-height: 710px; }
+  #projects > div { gap: 20px; }
+  #projectsTrack article.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 400px;
+    padding: 18px;
+    gap: 12px;
+  }
+  .project-preview { width: 100%; height: 126px; flex: 0 0 126px; }
+  .project-preview img { object-fit: cover; }
+  .project-preview figcaption { left: 8px; bottom: 5px; font-size: 8px; }
+  #projectsTrack .project-card .mb-8 { margin-bottom: 10px; }
+  #projectsTrack .project-card h3 { font-size: 1.625rem; }
+  #projectsTrack .project-card p { margin-top: 10px; font-size: 13px; line-height: 1.5; }
+  #projectsTrack article.project-card > a { margin-top: auto; }
+}
+
+@media (max-width: 767px) and (max-height: 740px) {
+  #projects { height: max(640px, 100svh); min-height: 640px; }
+  #projects > div { padding-top: 76px; padding-bottom: 12px; gap: 12px; }
+  #projects > div > div:first-child .grid { gap: 8px; }
+  #projects > div > div:first-child .mb-5 { margin-bottom: 8px; }
+  #projects > div > div:first-child p { font-size: 12px; line-height: 18px; }
+  #projects h2 { font-size: 1.75rem; }
+  #projectsTrack article.project-card { height: 330px; gap: 10px; padding: 16px; }
+  .project-preview { height: 94px; flex-basis: 94px; }
+  .project-preview img { object-fit: contain; }
+  #projectsTrack .project-card h3 { font-size: 1.5rem; }
+  #projectsTrack .project-card p { font-size: 12px; line-height: 18px; }
+}
+
+/* Scattered Hero ornaments: the content keeps its own clear reading area. */
+:root { --bg: var(--jawa-ivory); }
+#hero { isolation: isolate; }
+#hero > .relative { z-index: 2; pointer-events: none; }
+#hero a { pointer-events: auto; }
+#hero h1 { color: var(--jawa-brown); }
+#hero a[href="#projects"] { border: 1px solid var(--jawa-gold); }
+.hero-ornaments { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+.hero-ornament {
+  position: absolute;
+  color: var(--jawa-gold);
+  opacity: .42;
+  transform: translate(var(--ox, 0px), var(--oy, 0px)) rotate(var(--angle, 0deg));
+  transition: transform 650ms cubic-bezier(.2,.7,.2,1), opacity 350ms ease;
+  user-select: none;
+}
+.hero-ornament:hover { opacity: .88; }
+.hero-ornament svg { display: block; width: 100%; height: auto; }
+.ornament-kawung { width: clamp(110px, 15vw, 230px); top: 16%; left: 7%; --angle: -12deg; }
+.ornament-aksara { top: 19%; right: 19%; --angle: 8deg; font: 42px/1.8 "Noto Sans Javanese", "Javanese Text", serif; white-space: nowrap; }
+.ornament-gunungan { width: clamp(125px, 16vw, 230px); right: 10%; top: 36%; --angle: 9deg; }
+.ornament-parang { width: clamp(110px, 15vw, 200px); bottom: 11%; left: 22%; --angle: -9deg; }
+.ornament-flower { width: 90px; right: 38%; bottom: 19%; --angle: 16deg; }
+@media(max-width:767px) {
+  .hero-ornament { opacity: .38; }
+  .ornament-kawung { top: 13%; left: 3%; width: 105px; }
+  .ornament-aksara { top: 18%; right: 7%; font-size: 28px; }
+  .ornament-gunungan { top: auto; bottom: 5%; right: 7%; width: 98px; }
+  .ornament-parang { bottom: 10%; left: 8%; width: 104px; }
+  .ornament-flower { top: 35%; right: 4%; bottom: auto; width: 42px; opacity: .22; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .hero-ornament { transition: none; transform: rotate(var(--angle, 0deg)); }
+}
+
+/* A single warm paper palette across all light surfaces. */
+#hero, #about, #contact { isolation: isolate; }
+#about > div:not(.hero-ornaments),
+#contact > div:not(.hero-ornaments) { position: relative; z-index: 2; }
+#hero, #about, #contact {
+  background: var(--jawa-ivory) !important;
+}
+#hero .ornament-cloud { width: 220px; right: 31%; bottom: 13%; --angle: 24deg; }
+#hero .ornament-leaf { width: 140px; right: 5%; top: 17%; --angle: 28deg; opacity: .22; }
+#about .ornament-cloud { width: 190px; left: -35px; top: 13%; --angle: -17deg; }
+#about .ornament-leaf { width: 165px; right: -26px; bottom: 7%; --angle: -24deg; }
+#about .ornament-flower { width: 70px; left: 23%; bottom: 12%; top: auto; }
+#about .ornament-aksara { right: 11%; top: 12%; font-size: 30px; --angle: 7deg; }
+#contact .ornament-cloud { width: 210px; right: -30px; top: 17%; --angle: 12deg; }
+#contact .ornament-leaf { width: 150px; left: 2%; bottom: 9%; --angle: 18deg; }
+#contact .ornament-flower { width: 78px; right: 19%; bottom: 10%; top: auto; }
+#contact .ornament-aksara { left: 9%; right: auto; top: 13%; font-size: 30px; --angle: -9deg; }
+.section-ornaments .hero-ornament { opacity: .23; }
+.section-ornaments .hero-ornament:hover { opacity: .55; }
+/* Keep decorative layers out of flex layout rules used by Contact. */
+#contact > .hero-ornaments { position: absolute; height: 100%; }
+@media(max-width:767px) {
+  #hero .ornament-cloud { width: 110px; right: 36%; bottom: 5%; opacity: .2; }
+  #hero .ornament-leaf { width: 70px; right: -15px; top: 27%; }
+  #about .ornament-cloud, #contact .ornament-cloud { width: 110px; top: 10%; opacity: .14; }
+  #about .ornament-leaf, #contact .ornament-leaf { width: 86px; bottom: 2%; opacity: .18; }
+  #about .ornament-aksara, #contact .ornament-aksara { top: auto; bottom: 3%; font-size: 20px; opacity: .18; }
+  #about .ornament-flower, #contact .ornament-flower { width: 42px; bottom: auto; top: 46%; opacity: .12; }
+}
+
+/* Portrait composition: layered artwork, live text, and independent ornaments. */
+.hero-portrait { position: absolute; width: min(43vw, 570px); right: 8%; bottom: 12%; z-index: 1; pointer-events: none; }
+.hero-portrait img { display: block; width: 100%; height: auto; position: relative; mask-image: linear-gradient(to bottom, black 72%, transparent 99%); }
+.portrait-halo { position: absolute; inset: 24% -7% 3%; border: 1px solid var(--jawa-gold-line); border-radius: 48% 48% 46% 46%; transform: rotate(-13deg); background: transparent; }
+#hero .ornament-gunungan { width: min(30vw, 440px); right: 10%; top: 12%; opacity: .4; }
+#hero .ornament-aksara { right: 5%; top: 15%; font-size: 32px; }
+#hero h1 { font-size: clamp(3.5rem, 7.5vw, 7.5rem); line-height: 1; }
+#hero > div.relative > div { width: 53%; }
+@media(max-width:767px) {
+  #hero { min-height: 860px; }
+  #hero > div.relative { align-items: flex-start; padding-top: 62px; min-height: 740px; }
+  #hero > div.relative > div { width: 100%; }
+  #hero h1 { font-size: clamp(3rem, 13vw, 4.5rem); }
+  .hero-portrait { width: min(76vw, 340px); right: 8%; bottom: 12px; }
+  #hero .ornament-gunungan { width: 210px; top: auto; bottom: 48px; right: 9%; }
+  #hero .ornament-aksara { font-size: 23px; top: auto; bottom: 36%; right: 7%; }
+  #hero .ornament-kawung { top: 9%; width: 75px; }
+  #hero .ornament-cloud { bottom: 9%; right: auto; left: 3%; }
+  #hero .ornament-flower { top: 11%; right: 12%; }
+  #hero .ornament-leaf { top: auto; bottom: 23%; }
+  #hero .ornament-parang { bottom: 3%; left: 5%; width: 90px; }
+}
+
+/* Editorial refinements for the supporting sections. */
+#about .about-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+#about .about-layout > div { grid-column: auto; }
+#about h2 { font-size: clamp(2.5rem, 4.3vw, 4.5rem); line-height: 1.08; max-width: 540px; }
+#about h2 span { display: block; color: var(--jawa-muted); }
+#about .about-story { border-left: 1px solid var(--jawa-gold-line); padding-left: 32px; }
+#about .about-story > p { max-width: 560px; font-size: 16px; line-height: 1.85; color: var(--jawa-text); }
+#about .about-story > p:first-child { font-size: 20px; line-height: 1.65; color: var(--jawa-brown); }
+#about .about-story > p + p { margin-top: 20px; }
+#contact .contact-caption { font-size: 11px; line-height: 1.5; text-transform: uppercase; letter-spacing: .18em; color: var(--jawa-muted); margin: 0 0 12px; }
+#contact .contact-email { padding-top: 24px; border-top: 1px solid var(--jawa-gold-line); }
+#contact .contact-social-link { min-height: 44px; padding: 10px 14px; border: 1px solid var(--jawa-gold-line); border-radius: 999px; color: var(--jawa-brown); }
+#contact .contact-social-link:hover { background: rgba(215,166,74,.12); }
+#contact .mt-16 > span { display: none; }
+.extra-ornaments { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.extra-ornaments .hero-ornament { pointer-events: auto; opacity: .23; }
+.extra-kawung { width: 95px; top: 12%; right: 5%; --angle: 18deg; }
+.extra-lines { width: 170px; bottom: 9%; left: 5%; --angle: -17deg; }
+#about .extra-kawung { right: 42%; top: 17%; width: 65px; }
+#about .extra-lines { left: 4%; bottom: 7%; }
+#contact .extra-kawung { right: 5%; top: 51%; }
+#contact .extra-lines { left: 5%; top: 18%; bottom: auto; width: 115px; }
+#projects { isolation: isolate; }
+#projects > div { position: relative; z-index: 1; }
+#projects .extra-kawung { right: 7%; top: 8%; width: 135px; }
+#projects .extra-lines { bottom: 5%; left: 8%; }
+#footer .extra-kawung { right: 35%; top: -25px; width: 90px; }
+#footer .extra-lines { display: none; }
+#footer > div { position: relative; z-index: 1; }
+@media(max-width:767px) {
+  #about .about-layout { grid-template-columns: 1fr; gap: 24px; }
+  #about h2 { font-size: 2.5rem; }
+  #about .about-story { padding-left: 18px; }
+  #about .about-story > p { font-size: 14px; line-height: 1.7; }
+  #about .about-story > p:first-child { font-size: 17px; }
+  #about .mt-20 { margin-top: 28px; }
+  #contact h2 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  #contact .contact-email { padding-top: 20px; margin-top: 24px; }
+  #contact > div > .max-w-4xl > .mt-16 { margin-top: 24px; gap: 12px; }
+  .extra-ornaments .hero-ornament { opacity: .17; }
+  #projects .extra-kawung { width: 65px; top: 13%; right: 0; }
+  #projects .extra-lines { width: 100px; bottom: 3%; }
+  #about .extra-kawung { top: 7%; right: 5%; width: 45px; }
+  #contact .extra-kawung { width: 42px; }
+  #contact .extra-lines { top: 12%; left: -35px; }
+}
+
+/* Explicit project colors, independent of generated utility coverage. */
+#projects h2, #projectsTrack article h3 { color: var(--jawa-ivory); }
+#projects h2 > span { color: var(--jawa-gold); }
+#projects p { color: #C8BBA9; }
+#projectsTrack article.project-card { background-color: #3A2714; }
+#projectsTrack article .mb-8 span { color: var(--jawa-gold); }
+#projects > div > div:first-child .mb-5 > span:last-child { color: var(--jawa-gold); }
+#projectsTrack > a.project-card { background: var(--jawa-gold); color: var(--jawa-brown); }
+#projectsTrack > a.project-card > span { color: var(--jawa-brown); }
+
+/* Respect the device's motion preference without changing normal scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  html, body { cursor: auto; }
+  #wayangBodyLayer, #wayangPointerLayer, #cursorDot { display: none; }
+  #siteNav, #siteNav nav > div, #siteNav .nav-link,
+  #hero a, #projectsTrack .project-card, #projectsTrack .project-card a,
+  #projectsTrack .project-card a span, #projects [data-project-progress] span,
+  #contact a, #contact a span, #footer a {
+    transition: none !important;
+  }
+  #projectsTrack .project-card:hover,
+  #projectsTrack .project-card a:hover span[aria-hidden="true"],
+  #contact a:hover span[aria-hidden="true"] { transform: none; }
 }
