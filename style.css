@@ -1658,34 +1658,37 @@ h3 {
   color: var(--jawa-brown);
 }
 
+/* One full-card link and one interaction style for every project. */
 #projectsTrack .project-card {
+  position: relative;
   border-color: rgba(215, 166, 74, 0.25);
-  transition:
-    border-color 250ms ease,
-    transform 250ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
 }
 
-#projectsTrack .project-card:hover {
-  border-color: rgba(215, 166, 74, 0.65);
-  transform: translateY(-2px);
+#projectsTrack .project-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  margin: 0;
+  border-radius: inherit;
+  cursor: pointer;
 }
 
-#projectsTrack .project-card a {
-  color: var(--jawa-gold);
-  transition: color 250ms ease;
+#projectsTrack .project-card:focus-within {
+  border-color: var(--jawa-gold);
+  box-shadow: inset 0 0 0 2px var(--jawa-gold);
 }
 
-#projectsTrack .project-card a:hover {
-  color: var(--jawa-ivory);
+#projectsTrack .project-card-link:focus-visible {
+  outline: 2px solid var(--jawa-gold);
+  outline-offset: -4px;
 }
 
-#projectsTrack .project-card a span[aria-hidden="true"] {
-  display: inline-block;
-  transition: transform 250ms ease;
-}
-
-#projectsTrack .project-card a:hover span[aria-hidden="true"] {
-  transform: translateX(4px);
+@media (hover: hover) and (pointer: fine) {
+  #projectsTrack .project-card:hover {
+    border-color: var(--jawa-gold);
+    box-shadow: inset 0 0 0 1px var(--jawa-gold);
+  }
 }
 
 #contact a[href^="mailto:"] {
@@ -2009,7 +2012,7 @@ h3 {
   text-transform: uppercase;
 }
 #projectsTrack article.project-card > div { grid-column: 1; grid-row: 1; min-width: 0; }
-#projectsTrack article.project-card > a { grid-column: 1; grid-row: 2; }
+
 @media (max-width: 767px) {
   #projects { height: max(710px, 100svh); min-height: 710px; }
   #projects > div { gap: 20px; }
@@ -2027,7 +2030,7 @@ h3 {
   #projectsTrack .project-card .mb-8 { margin-bottom: 10px; }
   #projectsTrack .project-card h3 { font-size: 1.625rem; }
   #projectsTrack .project-card p { margin-top: 10px; font-size: 13px; line-height: 1.5; }
-  #projectsTrack article.project-card > a { margin-top: auto; }
+
 }
 
 @media (max-width: 767px) and (max-height: 740px) {
@@ -2200,8 +2203,6 @@ h3 {
   #contact a, #contact a span, #footer a {
     transition: none !important;
   }
-  #projectsTrack .project-card:hover,
-  #projectsTrack .project-card a:hover span[aria-hidden="true"],
   #contact a:hover span[aria-hidden="true"] { transform: none; }
 }
 
@@ -2220,4 +2221,21 @@ h3 {
   #projectsTrack { touch-action: auto; padding-right: 20px; }
   #projectsTrack .project-card,
   #projectsTrack > a.project-card { width: calc(100vw - 72px); scroll-snap-align: start; }
+}
+
+/* See More keeps its brown lettering with a distinct gold interaction state. */
+#projectsTrack > a.project-card {
+  transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+#projectsTrack > a.project-card:focus-visible {
+  background-color: #C49337;
+  border-color: var(--jawa-brown);
+  box-shadow: inset 0 0 0 2px var(--jawa-brown);
+}
+@media (hover: hover) and (pointer: fine) {
+  #projectsTrack > a.project-card:hover {
+    background-color: #C49337;
+    border-color: var(--jawa-brown);
+    box-shadow: inset 0 0 0 2px var(--jawa-brown);
+  }
 }

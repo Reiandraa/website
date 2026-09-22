@@ -1,8 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "dev": "node scripts/build-projects.mjs && vite --host 0.0.0.0",
+    "build": "node scripts/build-projects.mjs && vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {

@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "rei",
+    "title": "REI",
+    "type": "Personal AI Assistant",
+    "category": "Software",
+    "year": 2026,
+    "tags": "AI · Software",
+    "description": "A personal AI assistant exploring how software can support everyday ideas and tasks.",
+    "image": "rei.svg"
+  },
+  {
+    "slug": "posturku",
+    "title": "PosturKu",
+    "type": "Posture Monitoring Prototype",
+    "category": "Software",
+    "year": 2024,
+    "tags": "Software · Prototype",
+    "description": "A prototype exploring technology-assisted posture monitoring and interaction.",
+    "image": "posturku.svg"
+  },
+  {
+    "slug": "sisa-waktu-bersama",
+    "title": "Sisa Waktu Bersama",
+    "type": "Original Song",
+    "category": "Music",
+    "year": 2025,
+    "tags": "Music · Poseid",
+    "description": "An original song released under Poseid, the band behind the work.",
+    "image": "sisa-waktu-bersama.svg"
+  },
+  {
+    "slug": "drowsiness-detector",
+    "title": "Drowsiness Detector",
+    "type": "Android Computer Vision Project",
+    "category": "Software",
+    "year": 2023,
+    "tags": "Software · Computer Vision",
+    "description": "An Android project exploring driver drowsiness detection through computer vision.",
+    "image": "drowsiness.svg"
+  }
+]

@@ -1,0 +1,12 @@
+/* Foreground 20000 > existing Wayang/dot 10000 > navigation/content. */
+html[data-kelir], html[data-kelir] body { overflow: hidden !important; overscroll-behavior: none; }
+html.kelir-boot::after { content: ''; position: fixed; inset: 0; background: #2F1F0E; z-index: 20001; }
+.kelir { position: fixed; inset: 0; z-index: 20000; pointer-events: none; visibility: hidden; cursor: auto; }
+html[data-kelir] .kelir { visibility: visible; pointer-events: auto; touch-action: none; }
+.kelir-panel { position: absolute; top: 0; bottom: 0; width: calc(50% + 1px); height: 100%; fill: #2F1F0E; will-change: transform; }
+.kelir-left { left: 0; } .kelir-right { right: 0; }
+.kelir-hint { position: absolute; bottom: 10%; left: 24px; right: 24px; text-align: center; color: #D7A64A; font: inherit; font-size: 12px; letter-spacing: .08em; }
+.kelir-hint button { display: block; margin: 12px auto 0; padding: 10px 18px; border: 1px solid currentColor; background: #2F1F0E; color: inherit; cursor: pointer; }
+.kelir-hint[hidden] { display: none; }
+
+html[data-kelir="handoff"] .kelir { visibility: hidden; pointer-events: none; }
