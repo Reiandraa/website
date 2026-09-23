@@ -1,3 +1,4 @@
+import "./ornament-reveals.js";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -364,7 +365,8 @@ document.querySelectorAll('#hero, #about, #projects, #contact, #footer').forEach
         const x = (event.clientX - bounds.left) / bounds.width - 0.5;
         const y = (event.clientY - bounds.top) / bounds.height - 0.5;
         ornaments.forEach(ornament => {
-            const depth = Number(ornament.dataset.depth);
+            const strength = { hero: 1, projects: 0.5, about: 0.3, contact: 0.2, footer: 0 }[section.id];
+            const depth = Number(ornament.dataset.depth) * strength;
             ornament.style.setProperty('--ox', `${x * depth}px`);
             ornament.style.setProperty('--oy', `${y * depth}px`);
         });
