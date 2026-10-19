@@ -2,11 +2,11 @@
   {
     "slug": "rei",
     "title": "REI",
-    "type": "Personal AI Assistant",
+    "type": "A calmer university day",
     "category": "Software",
     "year": 2026,
-    "tags": "AI · Software",
-    "description": "A personal AI assistant exploring how software can support everyday ideas and tasks.",
+    "tags": "AI \u00b7 Planning",
+    "description": "REI brings important university email updates, proposed tasks, and your day planner together. Explore the interactive demo with sample data.",
     "image": "rei.svg"
   },
   {
@@ -15,7 +15,7 @@
     "type": "Posture Monitoring Prototype",
     "category": "Software",
     "year": 2024,
-    "tags": "Software · Prototype",
+    "tags": "Software \u00b7 Prototype",
     "description": "A prototype exploring technology-assisted posture monitoring and interaction.",
     "image": "posturku.svg"
   },
@@ -25,7 +25,7 @@
     "type": "Original Song",
     "category": "Music",
     "year": 2025,
-    "tags": "Music · Poseid",
+    "tags": "Music \u00b7 Poseid",
     "description": "An original song released under Poseid, the band behind the work.",
     "image": "sisa-waktu-bersama.svg"
   },
@@ -35,7 +35,7 @@
     "type": "Android Computer Vision Project",
     "category": "Software",
     "year": 2023,
-    "tags": "Software · Computer Vision",
+    "tags": "Software \u00b7 Computer Vision",
     "description": "An Android project exploring driver drowsiness detection through computer vision.",
     "image": "drowsiness.svg"
   }
