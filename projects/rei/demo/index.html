@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Try REI — Interactive demo</title><meta name="description" content="Explore REI with sample university messages, a daily planner, tasks, calendar, and an example assistant briefing. No account needed.">
+  <meta name="robots" content="noindex,follow"><meta name="theme-color" content="#20241f">
+  <link rel="icon" href="/assets/site-icon.png"><link rel="stylesheet" href="./demo.css">
+  <script type="module" src="./demo.js"></script>
+</head>
+<body>
+  <div class="demo-banner"><a href="/projects/rei/">← About REI</a><span><strong>Interactive demo</strong> · Sample data, no live AI or accounts</span><button id="reset-demo" type="button">Reset demo</button></div>
+  <div class="app-shell">
+    <aside class="sidebar"><a class="brand" href="#today" aria-label="REI demo home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V14M16 21C5 22 4 10 4 8c9 0 13 4 12 13Zm0-5C16 5 24 3 29 3c0 8-4 13-13 13Z"/></svg>REI</a><nav id="navigation" aria-label="Demo navigation"></nav><div class="space"><span class="space-icon">R</span><span>Personal space<small>Demo · Changes reset on refresh</small></span></div></aside>
+    <main id="main" tabindex="-1"><div id="screen"></div><footer>REI preview · Fictional messages and prewritten summaries · Nothing is sent to a server.</footer></main>
+  </div>
+  <dialog id="editor" aria-labelledby="editor-title"><form id="task-form"><div class="dialog-heading"><h2 id="editor-title">Add task</h2><button type="button" data-close aria-label="Close">×</button></div><label>Task name<input name="title" required maxlength="120" autocomplete="off" placeholder="What would you like to do?"></label><label>Date<input name="date" type="date" required></label><label>Plan a time <span>(optional)</span><input name="time" type="time"></label><button class="primary" type="submit">Add task</button></form></dialog>
+  <dialog id="message-dialog" aria-labelledby="message-title"><div id="message-content"></div><form method="dialog"><button class="secondary">Close message</button></form></dialog>
+  <div id="notice" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p>This interactive demo needs JavaScript. <a href="/projects/rei/">Read about REI instead.</a></p></noscript>
+</body>
+</html>
