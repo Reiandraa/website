@@ -4,7 +4,7 @@
     <p class="archive-eyebrow">REI · A calmer university day</p>
     <h1>Less inbox.<br><em>More headspace.</em></h1>
     <p class="rei-lead">Your classes, tasks, and important university updates. Together in one place, with a little help making sense of it all.</p>
-    <div class="rei-actions"><a class="rei-primary" href="/projects/rei/demo/">Try the interactive demo <span aria-hidden="true">↗</span></a><a href="https://github.com/Reiandraa/rei">GitHub ↗</a><a href="#how-it-works">See how it works ↓</a></div>
+    <div class="rei-actions"><a class="rei-primary" href="/projects/rei/demo/">Try the interactive demo <span aria-hidden="true">↗</span></a><a href="https://github.com/Reiandraa/rei">GitHub ↗</a><a href="#download">Download beta ↓</a></div>
     <p class="rei-fine">No installation or account needed for the demo. All demo messages and summaries are examples.</p>
   </header>
   <a class="rei-preview" href="/projects/rei/demo/" aria-label="Open the interactive REI demo"><img src="/assets/projects/rei.svg" width="1200" height="720" alt="Illustrated REI interface showing a daily review beside a university day timeline"><span>Explore the demo →</span></a>
@@ -22,5 +22,15 @@
     <div><dt>Messages with context</dt><dd>Go from a summary to its source, instead of wondering where a suggestion came from.</dd></div>
     <div><dt>A choice of AI</dt><dd>Local Ollama, or optional Claude and OpenAI using your own key. API use sends message content to the selected provider and may incur charges.</dd></div>
   </dl></section>
-  <section class="rei-section rei-status"><p class="archive-eyebrow">An honest preview</p><h2>Still growing. Already worth exploring.</h2><p>REI is a desktop app in development. This browser demo demonstrates its planning workflow using sample data and prewritten summaries; it does not run the desktop backend or a live AI model.</p><p>HIZ is the current university email connector. Teams, cloud sync, and a full conversational assistant with searchable memory are not available in this preview. A public installer is not ready yet.</p><a class="rei-primary" href="/projects/rei/demo/">Take a look around ↗</a></section>
+  <section class="rei-section rei-download" id="download" aria-labelledby="download-title">
+    <p class="archive-eyebrow">REI OS · Beta 0.1.0</p><h2 id="download-title">Make a little room<br>on your desktop.</h2>
+    <p>The real desktop app, with your own messages and saved plans. These are early beta builds; the browser demo above stays separate and uses sample data.</p>
+    <div class="rei-download-options">
+      <article><h3>Windows</h3><p>x64 · Standalone .exe</p><a class="rei-primary" href="https://github.com/Reiandraa/rei/releases/download/v0.1.0-beta.1/REI-OS-Windows-x64.exe">Download for Windows <span aria-hidden="true">↓</span></a><p class="rei-fine">Open the app directly. WebView2 is required. No Node.js or Rust setup.</p></article>
+      <article><h3>macOS</h3><p>Apple Silicon &amp; Intel</p><p class="rei-unavailable">Not available yet</p><p class="rei-fine">The Mac build is still being validated. There is no Mac download in this beta.</p></article>
+    </div>
+    <p class="rei-fine">The Windows beta is unsigned; your system may block its first opening. <a href="https://github.com/Reiandraa/rei/releases/tag/v0.1.0-beta.1">Release notes and checksums ↗</a></p>
+    <p class="rei-fine">For AI, choose local Ollama with an installed model, or configure your own supported API key in Settings. Accounts and models are not included in the download.</p>
+  </section>
+  <section class="rei-section rei-status"><p class="archive-eyebrow">An honest preview</p><h2>Still growing. Already worth exploring.</h2><p>REI is a desktop app in development. This browser demo demonstrates its planning workflow using sample data and prewritten summaries; it does not run the desktop backend or a live AI model.</p><p>HIZ is the current university email connector. Teams, cloud sync, and a full conversational assistant with searchable memory are not available in this preview. Beta downloads are available above; platform acceptance testing is still in progress.</p><a class="rei-primary" href="/projects/rei/demo/">Take a look around ↗</a></section>
 </div>
