@@ -1,1 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320"><rect width="640" height="320" fill="#302214"/><g fill="none" stroke="#D7A64A"><circle cx="435" cy="160" r="100" opacity=".22"/><circle cx="435" cy="160" r="75" opacity=".4"/><path d="M335 160h200M435 60v200" opacity=".2"/><path d="m385 160 30-42 20 67 25-50 25 25" stroke-width="2"/></g><text x="46" y="151" font-family="Georgia,serif" font-size="64" fill="#F3EBDD">REI</text><text x="49" y="184" font-family="Arial,sans-serif" font-size="11" letter-spacing="3" fill="#D7A64A">PERSONAL AI ASSISTANT</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" role="img" aria-labelledby="title desc">
+  <title id="title">REI: a calmer university day</title><desc id="desc">Illustrated interface with a daily review, a task checklist, and a timeline of classes and focused work. Sample content.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#253020"/><stop offset="1" stop-color="#20241f"/></linearGradient></defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <rect x="38" y="35" width="1124" height="647" rx="14" fill="#20251e" stroke="#56634b"/>
+    <path d="M52 35h160v647H52a14 14 0 0 1-14-14V49a14 14 0 0 1 14-14" fill="#1b211b"/>
+    <path d="M71 93V70m0 14c-12 0-12-12-12-15 10 0 13 5 12 15Zm0-9c0-12 8-14 15-14 0 9-5 14-15 14Z" stroke="#bbceac" stroke-width="1.5" fill="none"/>
+    <text x="99" y="85" fill="#e6ecdf" font-size="18" letter-spacing="2">REI</text>
+    <rect x="53" y="122" width="143" height="38" rx="6" fill="#303c2b"/>
+    <g fill="#c6d3bd" font-size="13"><text x="75" y="147">◉  Today</text><text x="75" y="193">✓  Tasks</text><text x="75" y="239">▦  Calendar</text><text x="75" y="285">✉  Messages</text><text x="75" y="331">✧  Assistant</text></g>
+    <path d="M59 620h130" stroke="#394333"/><text x="72" y="645" fill="#c6d3bd" font-size="11">Personal space</text><text x="72" y="662" fill="#94a88a" font-size="9">On this computer</text>
+    <text x="252" y="100" fill="#e8eddf" font-size="28">Today</text><text x="252" y="127" fill="#a6b79b" font-size="12">A little structure. More room for your day.</text>
+    <rect x="1000" y="79" width="119" height="35" rx="6" fill="#c0d3ad"/><text x="1022" y="101" fill="#25331d" font-size="12">+ Add task</text>
+    <rect x="251" y="160" width="43" height="54" rx="7" fill="#e2e9db"/>
+    <text x="263" y="180" fill="#263521" font-size="10">Mon</text><text x="263" y="201" fill="#263521" font-size="16">19</text>
+    <g fill="#b7c8ab" font-size="11"><text x="318" y="180">Tue</text><text x="376" y="180">Wed</text><text x="435" y="180">Thu</text><text x="492" y="180">Fri</text><text x="551" y="180">Sat</text><text x="610" y="180">Sun</text></g>
+    <g fill="#d5dfcd" font-size="15"><text x="319" y="202">20</text><text x="379" y="202">21</text><text x="437" y="202">22</text><text x="495" y="202">23</text><text x="554" y="202">24</text><text x="614" y="202">25</text></g>
+    <rect x="251" y="249" width="417" height="216" rx="7" fill="#33432c"/><rect x="251" y="255" width="3" height="204" rx="1" fill="#bfd1ac"/>
+    <text x="275" y="277" fill="#bfceaF" font-size="9" letter-spacing="1.5">YOUR STUDY ASSISTANT</text><text x="275" y="306" fill="#edf1e6" font-size="17">Daily review</text>
+    <g fill="#d8e4ce" font-size="12"><text x="275" y="342">Your tutorial group is ready.</text><text x="275" y="375">Thursday’s class moves to Room B204.</text><text x="275" y="408">Worksheet 2 is due Friday at 12:00.</text></g>
+    <path d="M275 423h367" stroke="#58694c"/><text x="275" y="447" fill="#c5dab2" font-size="11">Open summary →</text><text x="533" y="447" fill="#b8c8aa" font-size="10">1 proposed task</text>
+    <text x="252" y="507" fill="#e0e8d8" font-size="13">Planned for this day</text><path d="M251 527h417" stroke="#404d37"/>
+    <circle cx="268" cy="555" r="7" fill="none" stroke="#b7caa5"/><text x="287" y="551" fill="#dce6d3" font-size="12">Read the next chapter</text><text x="287" y="572" fill="#9fb38e" font-size="10">12:00 · Work plan</text>
+    <path d="M703 249v366" stroke="#404d37"/><text x="732" y="266" fill="#dfe6d6" font-size="14">Your day</text><text x="732" y="289" fill="#98ad89" font-size="10">Europe/Berlin · Sample schedule</text>
+    <g stroke="#414e38"><path d="M774 321h344m-344 64h344m-344 64h344m-344 64h344m-344 64h344"/></g>
+    <g fill="#aabb9e" font-size="9"><text x="731" y="325">10:00</text><text x="731" y="389">11:00</text><text x="731" y="453">12:00</text><text x="731" y="517">13:00</text><text x="731" y="581">14:00</text></g>
+    <rect x="776" y="322" width="341" height="60" rx="5" fill="#374a2e"/><text x="790" y="341" fill="#b7cba7" font-size="9">10:00 · Scheduled</text><text x="790" y="360" fill="#e4eddb" font-size="12">Mathematics I</text>
+    <rect x="776" y="450" width="341" height="60" rx="5" fill="#374a2e"/><text x="790" y="469" fill="#b7cba7" font-size="9">12:00 · Work plan</text><text x="790" y="488" fill="#e4eddb" font-size="12">Read the next chapter</text>
+    <rect x="776" y="578" width="341" height="60" rx="5" fill="#374a2e"/><text x="790" y="597" fill="#b7cba7" font-size="9">14:00 · Scheduled</text><text x="790" y="616" fill="#e4eddb" font-size="12">Computing tutorial</text>
+    <text x="252" y="648" fill="#93a884" font-size="10">Illustrated preview · Sample data</text>
+  </g>
+</svg>
