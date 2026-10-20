@@ -32,7 +32,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: { main: 'index.html', projects: 'projects/index.html',
-        reiDemo: 'projects/rei/demo/index.html', ...Object.fromEntries(works.map(work => [work.slug, `projects/${work.slug}/index.html`])) }
+        reiDemo: 'projects/rei/demo/index.html', drowsinessDemo: 'projects/drowsiness-detector/demo/index.html', ...Object.fromEntries(works.map(work => [work.slug, `projects/${work.slug}/index.html`])) }
     }
   },
   root: '.'

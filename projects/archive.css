@@ -29,3 +29,4 @@ html:has(.archive-page),body.archive-page{cursor:auto;scroll-behavior:auto;backg
 
 .project-byline{color:var(--jawa-muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 16px}
 .prototype-screen img{aspect-ratio:412/705;object-fit:cover;object-position:center}.work-card img[src*="posturku-prototype"]{object-fit:cover;padding:0}
+.project-demo-links{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin:0 0 16px}.project-demo-links+.project-media-caption{margin-bottom:48px}

@@ -16,9 +16,9 @@
     "category": "Software",
     "year": 2023,
     "tags": "Android · Computer Vision",
-    "description": "An Android application exploring driver drowsiness detection through computer vision. Watch the project presentation from ISPO 2023.",
+    "description": "An Android computer vision project, with its ISPO 2023 presentation and a new on-device browser/Python eye-closure demo.",
     "image": "drowsiness.svg",
-    "previewCaption": "Android application · Video presentation",
+    "previewCaption": "Interactive demo and project presentation",
     "previewAlt": "Illustration of face and eye tracking for Drowsiness Detector"
   },
   {
