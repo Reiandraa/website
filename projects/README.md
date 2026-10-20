@@ -8,6 +8,10 @@ To expand an individual project, add `projects/<slug>/story.html` with the story
 
 Use stable slugs to preserve incoming links. Artwork lives in `assets/projects/`; current previews are concepts. Grid and Index share filtering via `archive.js`; visual styles are scoped in `archive.css`.
 
+Completed projects can provide `projects/<slug>/product.html` for their full authored content. These pages are indexable and do not show the placeholder story. The non-REI pages use shared editorial styles in `archive.css`; video buttons use `media.js` to load a YouTube privacy-enhanced player only after a visitor clicks. Keep the external video link as a fallback.
+
+`works.json` supports `previewCaption`, `previewAlt`, and a null year for an unconfirmed date. PosturKu links to the Indonesian Figma prototype. Sisa Waktu Bersama is the single Poseid music entry, with the graduation credits, duo photo, and solo guitar clip together. The Drowsiness page currently provides the project presentation; an interactive camera demo is future work.
+
 ## REI product page and browser demo
 
 REI uses `rei/product.html` and `rei/product.css` instead of the generic concept
