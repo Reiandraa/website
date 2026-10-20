@@ -10,7 +10,13 @@ Use stable slugs to preserve incoming links. Artwork lives in `assets/projects/`
 
 Completed projects can provide `projects/<slug>/product.html` for their full authored content. These pages are indexable and do not show the placeholder story. The non-REI pages use shared editorial styles in `archive.css`; video buttons use `media.js` to load a YouTube privacy-enhanced player only after a visitor clicks. Keep the external video link as a fallback.
 
-`works.json` supports `previewCaption`, `previewAlt`, and a null year for an unconfirmed date. PosturKu links to the Indonesian Figma prototype. Sisa Waktu Bersama is the single Poseid music entry, with the graduation credits, duo photo, and solo guitar clip together. The Drowsiness page currently provides the project presentation; an interactive camera demo is future work.
+`works.json` supports `previewCaption`, `previewAlt`, and a null year for an unconfirmed date. PosturKu links to the Indonesian Figma prototype. Sisa Waktu Bersama is the single Poseid music entry, with the graduation credits, duo photo, and solo guitar clip together.
+
+## Drowsiness camera demo
+
+The original Android presentation remains at `/projects/drowsiness-detector/`. A separate new demo is at `/projects/drowsiness-detector/demo/`, with its own Vite entry. Its matching Python/browser source and automated tests are at https://github.com/Reiandraa/drowsiness-detector-demo . Preserve the MIT license and SOURCES.md attribution when syncing the seven demo files.
+
+The guided sample uses synthetic measurements without a camera or model download. Camera inference runs in a classic worker, bundled by Vite, with MediaPipe 1.1.1 and a checksum-verified Google model. Frames are never recorded or uploaded. Capture is opt-in and releases on Stop, page exit, or tab hiding. The model-only check processes a blank frame and does not request a camera. A live Mac camera trial is still pending; successful model checks do not validate fatigue detection or driving safety.
 
 ## REI product page and browser demo
 
