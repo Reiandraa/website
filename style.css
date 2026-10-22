@@ -2153,6 +2153,12 @@ h3 {
 #about .about-story > p { max-width: 560px; font-size: 16px; line-height: 1.85; color: var(--jawa-text); }
 #about .about-story > p:first-child { font-size: 20px; line-height: 1.65; color: var(--jawa-brown); }
 #about .about-story > p + p { margin-top: 20px; }
+#about .about-languages { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--jawa-gold-line); max-width: 560px; }
+#about .about-languages h3 { margin: 0 0 12px; font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--jawa-muted); }
+#about .language-list { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 0; padding: 0; list-style: none; }
+#about .language-list li { display: inline-flex; align-items: baseline; gap: 6px; font-size: 14px; line-height: 1.6; color: var(--jawa-brown); }
+#about .language-list span { font-size: 12px; color: var(--jawa-muted); }
+
 #contact .contact-caption { font-size: 11px; line-height: 1.5; text-transform: uppercase; letter-spacing: .18em; color: var(--jawa-muted); margin: 0 0 12px; }
 #contact .contact-email { padding-top: 24px; border-top: 1px solid var(--jawa-gold-line); }
 #contact .contact-social-link { min-height: 44px; padding: 10px 14px; border: 1px solid var(--jawa-gold-line); border-radius: 999px; color: var(--jawa-brown); }
