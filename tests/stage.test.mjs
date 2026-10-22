@@ -32,11 +32,29 @@ test('wheel scrubs reversibly, locks content, then permanently releases',()=>{
  s.quiet();assert.equal(s.root.dataset.kelir,undefined);assert.equal(s.content.inert,false);
  assert.equal(s.data.get('reiandraaStageEntered'),'true');s.fire('wheel',{deltaY:-900,deltaMode:0});assert.equal(s.panels[0].xPercent,-100);
 });
-test('touch supports repeated swipes and reverse movement',()=>{
- const s=setup();s.fire('touchstart',{touches:[{clientY:600}]});s.fire('touchmove',{touches:[{clientY:225}]});assert.equal(s.panels[0].xPercent,-50);
- s.fire('touchmove',{touches:[{clientY:375}]});assert.equal(s.panels[0].xPercent,-30);
- s.fire('touchend');s.fire('touchstart',{touches:[{clientY:700}]});s.fire('touchmove',{touches:[{clientY:100}]});assert.equal(s.root.dataset.kelir,'handoff');
- assert.equal(s.fire('touchmove',{touches:[{clientY:50}]}).prevented,true);s.fire('touchend');assert.equal(s.root.dataset.kelir,undefined);
+test('one short touchscreen swipe opens fully and holds until finger release',()=>{
+ const s=setup();s.fire('touchstart',{touches:[{clientY:600}]});
+ assert.equal(s.fire('touchmove',{touches:[{clientY:520}]}).prevented,true);
+ assert.equal(s.root.dataset.kelir,'handoff');assert.equal(s.panels[0].xPercent,-100);
+ assert.equal(s.data.get('reiandraaStageEntered'),'true');
+ assert.equal(s.fire('touchmove',{touches:[{clientY:450}]}).prevented,true);
+ assert.equal(s.root.dataset.kelir,'handoff');s.fire('touchend');
+ assert.equal(s.root.dataset.kelir,undefined);assert.equal(s.content.inert,false);
+ assert.equal(s.fire('touchmove',{touches:[{clientY:400}]}).prevented,undefined);
+});
+test('touch allows small adjustments and reversal before completing the same swipe',()=>{
+ const s=setup();s.fire('touchstart',{touches:[{clientY:600}]});
+ s.fire('touchmove',{touches:[{clientY:560}]});assert.equal(s.panels[0].xPercent,-50);
+ s.fire('touchmove',{touches:[{clientY:576}]});assert.equal(s.panels[0].xPercent,-30);
+ s.fire('touchmove',{touches:[{clientY:520}]});assert.equal(s.root.dataset.kelir,'handoff');
+ s.fire('touchcancel');assert.equal(s.root.dataset.kelir,undefined);
+});
+test('a touch tap or multi-finger gesture does not dismiss the intro',()=>{
+ const s=setup();s.fire('touchstart',{touches:[{clientY:600}]});s.fire('touchend');
+ assert.equal(s.root.dataset.kelir,'intro');assert.ok(s.panels[0].xPercent === 0);
+ s.fire('touchstart',{touches:[{clientY:600},{clientY:610}]});
+ s.fire('touchmove',{touches:[{clientY:450},{clientY:460}]});
+ assert.equal(s.root.dataset.kelir,'intro');
 });
 test('refresh and reduced motion bypass intro; keyboard can skip',()=>{
  assert.equal(setup({entered:true}).root.dataset.kelir,undefined);
