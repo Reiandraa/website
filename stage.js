@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 
 // All interaction/timing tuning lives here. No ScrollTrigger or page layout changes.
 const OPEN_DISTANCE = 750;
+// Touchscreen only: one short upward swipe opens the intro; wheel/trackpad stays unchanged.
+const TOUCH_OPEN_DISTANCE = 80;
 // Wheel has no gesture-end event: require a brief quiet gap, reset by every momentum event.
 const WHEEL_QUIET_MS = 160;
 const CLOSE_SECONDS = 0.6;
@@ -76,7 +78,8 @@ function armWheelEnd() {
   handoffTimer = setTimeout(() => { if (mode === "handoff") { holdHero(); release(); } }, WHEEL_QUIET_MS);
 }
 function scrub(delta, input) {
-  progress = Math.max(0, Math.min(1, progress + delta / OPEN_DISTANCE));
+  const distance = input === 'touch' ? TOUCH_OPEN_DISTANCE : OPEN_DISTANCE;
+  progress = Math.max(0, Math.min(1, progress + delta / distance));
   render(progress);
   hint.style.opacity = String(Math.max(0, 1 - progress * 4));
   if (progress === 1) finishIntro(input);
