@@ -46,3 +46,10 @@ Before deploying, run the normal `npm ci` and `npm run build` for this site's
 locked toolchain, check desktop and mobile layouts, and verify both trailing-
 slash routes on the existing host. The local offline compatibility build is
 not a substitute for the host's Vite 8 build.
+
+
+## Status, archive filters and detail navigation
+
+Every entry in works.json has an explicit status: Beta, Prototype or Completed. Drowsiness is marked Prototype for its current browser/Python demo; its original Android presentation remains distinct. Only populated categories appear as archive filters. The generator owns the shared All projects backlink, status badge and Previous/All projects/Next footer using works.json order. Keep these links out of authored product.html files to prevent drift.
+
+REI beta feedback lives beside the product/download information: a prefilled public GitHub issue link and an email alternative. These links open a draft; the site never submits a report automatically.

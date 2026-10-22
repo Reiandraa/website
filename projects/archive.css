@@ -30,3 +30,23 @@ html:has(.archive-page),body.archive-page{cursor:auto;scroll-behavior:auto;backg
 .project-byline{color:var(--jawa-muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 16px}
 .prototype-screen img{aspect-ratio:412/705;object-fit:cover;object-position:center}.work-card img[src*="posturku-prototype"]{object-fit:cover;padding:0}
 .project-demo-links{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin:0 0 16px}.project-demo-links+.project-media-caption{margin-bottom:48px}
+
+/* Shared project status and sequential navigation, generated from works.json. */
+.project-status{display:inline-flex;align-items:center;width:fit-content;max-width:100%;padding:4px 10px;border:1px solid var(--jawa-gold-line);border-radius:999px;font:600 11px/1.5 'Open Sans',sans-serif;letter-spacing:.015em;text-transform:none;color:var(--jawa-brown);background:#D7A64A12}
+.work-card .project-status{color:var(--jawa-ivory);border-color:#D7A64A80;background:#D7A64A14;margin-top:18px}
+.index-title .project-status{vertical-align:middle;margin:0 0 2px 8px}
+.project-topline{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:36px}
+.project-topline .archive-back{margin:0;color:var(--jawa-brown)}
+.project-navigation{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:start;gap:28px;margin-top:56px;padding-top:28px;border-top:1px solid var(--jawa-gold-line)}
+.project-navigation a{color:var(--jawa-brown);text-underline-offset:5px;font-size:13px;line-height:1.7;min-height:44px}
+.project-adjacent{display:flex;flex-direction:column;gap:7px;text-decoration:none;overflow-wrap:anywhere}
+.project-adjacent>span{font-size:11px;color:var(--jawa-muted)}
+.project-adjacent strong{font-weight:600;text-decoration:underline;text-underline-offset:5px}
+.project-forward{text-align:right;align-items:flex-end}
+.project-all{align-self:center;white-space:nowrap}
+.archive-controls button{font-weight:500}.archive-count,.work-type,.project-media-caption,.prototype-screen figcaption,.project-photo figcaption{font-weight:500}
+@media(max-width:767px){.project-topline{gap:16px;margin-bottom:28px}.project-navigation{gap:12px;margin-top:40px;padding-top:22px}.project-navigation a{font-size:12px}.project-adjacent>span{font-size:10px}.index-title .project-status{display:table;margin:8px 0 0}.work-card .project-status{margin-top:14px}}
+
+/* Opaque captions remain readable over preview artwork and embedded lettering. */
+.work-card figcaption{left:0;right:0;bottom:0;width:100%;padding:10px 14px;background:#2F1F0E;color:#F3EBDD;font-size:11px;line-height:1.5;letter-spacing:.06em}
+.work-card:has(img[src*="posturku-prototype"]) figcaption{left:0;right:0;bottom:0;padding:10px 14px;background:#F3EBDD;color:#2F1F0E}
