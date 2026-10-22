@@ -179,7 +179,8 @@ projectModes.add('(min-width: 768px)', () => {
         scrollTrigger: {
             trigger: projectsSection,
             start: 'top top',
-            end: () => `+=${Math.max(1, projectTravel())}`,
+            // Cover the same shelf with 40% less vertical scrolling.
+            end: () => `+=${Math.max(1, projectTravel() * 0.6)}`,
             pin: true,
             scrub: true,
             invalidateOnRefresh: true,
@@ -317,6 +318,9 @@ window.addEventListener(
                 : scrollY > projectsTrigger.start + 1;
 
             if (canExplore) {
+                // Let the browser handle vertical wheel/trackpad momentum naturally.
+                // Only sideways gestures need mapping into the pinned vertical range.
+                if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
                 event.preventDefault();
                 const pixels = delta * (event.deltaMode === 1 ? 16
                     : event.deltaMode === 2 ? window.innerHeight : 1);
