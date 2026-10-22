@@ -2113,7 +2113,16 @@ h3 {
 }
 
 /* Portrait composition: layered artwork, live text, and independent ornaments. */
-.hero-portrait { position: absolute; width: min(43vw, 570px); right: 8%; bottom: 12%; z-index: 1; pointer-events: none; }
+/* Reserve the first 120px for navigation, including on short laptop/tablet screens.
+   The 1000 x 1333 portrait must fit the remaining height as well as its column. */
+.hero-portrait {
+  position: absolute;
+  width: min(43vw, 570px, calc((100svh - 120px - clamp(24px, 8svh, 96px)) / 1.333));
+  right: 8%;
+  bottom: clamp(24px, 8svh, 96px);
+  z-index: 1;
+  pointer-events: none;
+}
 .hero-portrait img { display: block; width: 100%; height: auto; position: relative; mask-image: linear-gradient(to bottom, black 72%, transparent 99%); }
 .portrait-halo { position: absolute; inset: 24% -7% 3%; border: 1px solid var(--jawa-gold-line); border-radius: 48% 48% 46% 46%; transform: rotate(-13deg); background: transparent; }
 #hero .ornament-gunungan { width: min(30vw, 440px); right: 10%; top: 12%; opacity: .4; }
