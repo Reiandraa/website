@@ -7,7 +7,8 @@
     "year": 2026,
     "tags": "AI · Planning",
     "description": "REI brings important university email updates, proposed tasks, and your day planner together. Explore the interactive demo with sample data.",
-    "image": "rei.svg"
+    "image": "rei.svg",
+    "status": "Beta"
   },
   {
     "slug": "drowsiness-detector",
@@ -19,7 +20,8 @@
     "description": "An Android computer vision project, with its ISPO 2023 presentation and a new on-device browser/Python eye-closure demo.",
     "image": "drowsiness.svg",
     "previewCaption": "Interactive demo and project presentation",
-    "previewAlt": "Illustration of face and eye tracking for Drowsiness Detector"
+    "previewAlt": "Illustration of face and eye tracking for Drowsiness Detector",
+    "status": "Prototype"
   },
   {
     "slug": "sisa-waktu-bersama",
@@ -31,7 +33,8 @@
     "description": "Sisa Waktu Bersama by Poseid. Created by Rassya, Yolanda and music teacher Puji Lestari for Rassya's graduation from SMA Semesta Bilingual Boarding School.",
     "image": "sisa-waktu-bersama.svg",
     "previewCaption": "Sisa Waktu Bersama · By Poseid",
-    "previewAlt": "Sisa Waktu Bersama title artwork"
+    "previewAlt": "Sisa Waktu Bersama title artwork",
+    "status": "Completed"
   },
   {
     "slug": "posturku",
@@ -43,6 +46,7 @@
     "description": "Explore the Indonesian-language PosturKu interface prototype in Figma.",
     "image": "posturku-prototype.jpg",
     "previewCaption": "Try the Figma prototype",
-    "previewAlt": "Opening screen of the PosturKu Figma prototype"
+    "previewAlt": "Opening screen of the PosturKu Figma prototype",
+    "status": "Prototype"
   }
 ]
